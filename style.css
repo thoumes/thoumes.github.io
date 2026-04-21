@@ -10,8 +10,8 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     margin: 0;
-    color: var(--negro);
-    background-color: var(--blanco); /* Fondo general limpio en blanco */
+    color: var(--blanco);
+    background-color: var(--negro); /* Fondo general limpio en negro */
 }
 
 /* --- Barra de Navegación --- */
