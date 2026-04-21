@@ -54,27 +54,67 @@ body {
 }
 
 /* --- HERO (Cabecera) --- */
+/* --- HERO (Ajustado para texto izquierda / foto derecha) --- */
 .hero {
     background-color: var(--negro);
     color: var(--blanco);
-    padding: 60px 20px;
-    text-align: center;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center; /* Centra el bloque en pantallas grandes */
+}
+
+.hero-container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: space-between; /* Separa texto de imagen */
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1; /* Toma el espacio disponible */
+    text-align: left; /* Alinea todo el texto a la izquierda */
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--blanco);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Mueve la imagen a la derecha del todo */
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 300px; /* La hacemos un poco más grande ya que ahora tiene espacio */
+    height: 300px;
+    border-radius: 20px; /* Si prefieres cuadrada con bordes redondeados en vez de círculo */
     border: 3px solid var(--primario);
     object-fit: cover;
-    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
 }
 
-.subtitle {
-    color: var(--primario);
-    font-weight: bold;
+/* Ajuste para móviles (para que se vea uno encima de otro en pantallas pequeñas) */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column-reverse; /* Foto arriba, texto abajo en móviles */
+        text-align: center;
+    }
+    .hero-text {
+        text-align: center;
+    }
+    .hero-image {
+        justify-content: center;
+    }
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
 }
-
 /* --- BOTONES (Dorados) --- */
 .btn, .btn-sugerencias {
     display: inline-block;
