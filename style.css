@@ -17,7 +17,7 @@ body {
 /* --- NAVBAR --- */
 .navbar {
     background-color: var(--negro);
-    padding: 1rem 0;
+    padding: 1.2rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -38,72 +38,76 @@ body {
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
     margin: 0;
 }
 
 .nav-links a {
     color: var(--blanco);
     text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-/* --- HERO (Ajustado) --- */
+.nav-links a:hover {
+    color: var(--primario);
+}
+
+/* --- HERO (Inicio) --- */
 .hero {
-    background-color: var(--negro); /* Fondo negro para que resalte el dorado */
-    padding: 0 20px; /* Quitamos padding vertical para que la foto toque la línea */
+    background-color: var(--negro);
+    padding: 60px 20px 0 20px; /* Sin padding abajo para que la foto toque la línea */
     display: flex;
     justify-content: center;
-    border-bottom: 4px solid var(--primario); /* Línea dorada que separa secciones */
+    border-bottom: 5px solid var(--primario); /* Línea dorada divisoria */
 }
 
 .hero-container {
-    max-width: 1100px;
+    max-width: 1200px;
     width: 100%;
     display: flex;
-    align-items: center; 
-    justify-content: space-between;
-    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Espacio reducido para acercar foto y texto */
 }
 
 .hero-text {
-    flex: 1.2; 
-    text-align: left; /* Texto a la izquierda */
-    padding: 40px 0;
+    flex: 1.2;
+    text-align: center; /* TEXTO CENTRADO AL CENTRO */
 }
 
 .hero-text h1 {
-    font-size: 3.5rem; /* Nombre bien grande */
-    margin-bottom: 10px;
-    color: var(--primario); /* Nombre en dorado para que se vea claro */
+    font-size: 4rem;
+    margin: 0 0 15px 0;
+    color: var(--primario);
     line-height: 1.1;
+    text-transform: uppercase;
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--blanco);
-    font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .hero-image {
-    flex: 0.8;
+    flex: 1;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end; /* Alinea la foto a la base */
+    justify-content: flex-start; /* Imagen hacia el centro */
 }
 
 .profile-img {
-    max-width: 100%; /* Se adapta al espacio */
-    height: 500px;  /* Altura fija para controlar el diseño */
-    width: auto;    /* Calcula el ancho automáticamente para NO distorsionar */
+    height: 600px; /* FOTO GRANDE */
+    width: auto;
     object-fit: cover;
     display: block;
-    /* Efecto elegante: la foto parece salir de la línea */
 }
 
 /* --- BOTONES --- */
@@ -111,12 +115,13 @@ body {
     display: inline-block;
     background-color: var(--primario);
     color: var(--negro);
-    padding: 15px 30px;
+    padding: 16px 32px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
     border: 2px solid var(--primario);
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -127,37 +132,90 @@ body {
 /* --- SECCIONES --- */
 .container {
     max-width: 1000px;
-    margin: 80px auto;
+    margin: 100px auto;
     padding: 0 20px;
     text-align: center;
 }
 
+h2 {
+    font-size: 2.5rem; /* TÍTULOS GRANDES */
+    color: var(--primario);
+    border-bottom: 3px solid var(--primario);
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.text-p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- TARJETAS --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
 .card {
     background-color: #222;
-    color: var(--blanco);
-    padding: 30px;
-    border-radius: 10px;
+    padding: 40px;
+    border-radius: 12px;
     border: 1px solid var(--primario);
     text-align: left;
+    transition: transform 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    color: var(--primario);
+    font-size: 1.5rem;
+}
+
+.icon-circle {
+    font-size: 2.5rem;
+}
+
+/* --- BUZÓN --- */
 .buzon-quejas {
-    border: 3px solid var(--primario);
-    padding: 40px;
-    background: #111;
-    border-radius: 15px;
+    border: 4px solid var(--primario); /* CAJA DORADA */
+    padding: 50px;
+    background-color: #111;
+    border-radius: 20px;
 }
 
-/* Ajuste Móvil */
+/* --- FOOTER (CENTRADO TOTAL) --- */
+footer {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 60px 20px;
+    border-top: 4px solid var(--primario);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    margin: 8px 0;
+    font-size: 1.1rem;
+}
+
+/* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
     .hero-container {
         flex-direction: column;
-        padding-top: 40px;
-    }
-    .hero-text {
-        text-align: center;
-        padding: 20px;
+        gap: 40px;
     }
     .hero-text h1 { font-size: 2.5rem; }
-    .profile-img { height: 350px; }
+    .profile-img { height: 400px; }
+    .hero { padding-bottom: 40px; }
 }
