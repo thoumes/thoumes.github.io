@@ -1,32 +1,120 @@
 :root {
-    --primary: #2563eb; /* Azul institucional */
-    --dark: #1e293b;
-    --light: #f8fafc;
+    --primario: #D4AF37; /* Dorado metálico */
+    --dorado-oscuro: #B8860B;
+    --negro: #1a1a1a;
+    --blanco: #ffffff;
+    --gris-claro: #f4f4f4;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     margin: 0;
-    color: var(--dark);
-    background-color: var(--light);
+    color: var(--negro);
+    background-color: var(--blanco); /* Fondo general limpio en blanco */
 }
 
+/* --- Barra de Navegación --- */
+.navbar {
+    background-color: var(--negro); /* Fondo negro */
+    border-bottom: 2px solid var(--primario); /* Línea dorada sutil */
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: var(--primario); /* Logo en dorado */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.nav-links a {
+    color: var(--blanco);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primario);
+}
+
+/* --- Cabecera (Hero) --- */
 .hero {
-    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-    color: white;
-    padding: 60px 20px;
+    background: var(--negro); /* Fondo negro */
+    color: var(--blanco);
+    padding: 80px 20px;
     text-align: center;
 }
 
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
-    border: 4px solid white;
+    border: 3px solid var(--primario); /* Borde dorado en tu foto */
     object-fit: cover;
     margin-bottom: 20px;
 }
+
+.subtitle {
+    color: var(--primario); /* Texto secundario en dorado */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* --- Botones --- */
+.btn, .btn-sugerencias {
+    display: inline-block;
+    background-color: var(--primario); /* Botón dorado */
+    color: var(--negro); /* Texto negro para contraste */
+    padding: 12px 24px;
+    border-radius: 5px; /* Bordes un poco más rectos para seriedad */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn:hover, .btn-sugerencias:hover {
+    background-color: var(--dorado-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* --- Tarjetas de Propuestas --- */
+.card {
+    background: var(--blanco);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--primario); /* Al pasar el ratón se ilumina el borde en dorado */
+}
+
+.card h3 {
+    color: var(--negro);
+    border-bottom: 2px solid var(--primario);
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--negro);
+    color: var(--primario);
+    padding: 30px;
+    margin-top: 50px;
+    border-top: 3px solid var(--primario);
+}
+
+
 
 .container {
     max-width: 900px;
@@ -67,13 +155,6 @@ body {
     text-decoration: none;
     font-weight: bold;
     margin-top: 20px;
-}
-
-footer {
-    background: var(--dark);
-    color: white;
-    padding: 20px;
-    margin-top: 50px;
 }
 
 .buzon-quejas {
