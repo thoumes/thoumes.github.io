@@ -14,9 +14,9 @@ body {
     scroll-behavior: smooth;
 }
 
-/* --- NAVBAR (Fija y Negra) --- */
+/* --- NAVBAR --- */
 .navbar {
-    background-color: var(--negro) !important;
+    background-color: var(--negro);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -25,7 +25,7 @@ body {
 }
 
 .nav-container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -34,7 +34,7 @@ body {
 }
 
 .logo {
-    color: var(--primario) !important;
+    color: var(--primario);
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
@@ -48,149 +48,116 @@ body {
 }
 
 .nav-links a {
-    color: var(--blanco) !important;
+    color: var(--blanco);
     text-decoration: none;
-    font-size: 0.9rem;
 }
 
-/* --- HERO (Ajustado para texto izquierda / foto derecha) --- */
+/* --- HERO (Ajustado) --- */
 .hero {
-    background-color: var(--primario);
-    color: var(--blanco);
-    padding: 80px 20px;
+    background-color: var(--negro); /* Fondo negro para que resalte el dorado */
+    padding: 0 20px; /* Quitamos padding vertical para que la foto toque la línea */
     display: flex;
-    justify-content: center; /* Centra el bloque en pantallas grandes */
+    justify-content: center;
+    border-bottom: 4px solid var(--primario); /* Línea dorada que separa secciones */
 }
 
 .hero-container {
-    max-width: 1000px;
+    max-width: 1100px;
     width: 100%;
     display: flex;
-    align-items: center; /* Alinea verticalmente al centro */
-    justify-content: space-between; /* Separa texto de imagen */
+    align-items: center; 
+    justify-content: space-between;
     gap: 40px;
 }
 
 .hero-text {
-    flex: 1; /* Toma el espacio disponible */
-    text-align: center; /* Alinea todo el texto a la izquierda */
+    flex: 1.2; 
+    text-align: left; /* Texto a la izquierda */
+    padding: 40px 0;
 }
 
 .hero-text h1 {
-    font-size: 3rem;
+    font-size: 3.5rem; /* Nombre bien grande */
     margin-bottom: 10px;
-    color: var(--negro);
+    color: var(--primario); /* Nombre en dorado para que se vea claro */
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
 .hero-image {
-    flex: 1;
+    flex: 0.8;
     display: flex;
-    justify-content: flex-end; /* Mueve la imagen a la derecha del todo */
+    justify-content: flex-end;
+    align-items: flex-end; /* Alinea la foto a la base */
 }
 
 .profile-img {
-    width: 533px; /* La hacemos un poco más grande ya que ahora tiene espacio */
-    height: 800px;
+    max-width: 100%; /* Se adapta al espacio */
+    height: 500px;  /* Altura fija para controlar el diseño */
+    width: auto;    /* Calcula el ancho automáticamente para NO distorsionar */
+    object-fit: cover;
+    display: block;
+    /* Efecto elegante: la foto parece salir de la línea */
 }
 
-/* Ajuste para móviles (para que se vea uno encima de otro en pantallas pequeñas) */
-@media (max-width: 768px) {
-    .hero-container {
-        flex-direction: column-reverse; /* Foto arriba, texto abajo en móviles */
-        text-align: center;
-    }
-    .hero-text {
-        text-align: center;
-    }
-    .hero-image {
-        justify-content: center;
-    }
-    .profile-img {
-        width: 200px;
-        height: 200px;
-    }
-}
-/* --- BOTONES (Dorados) --- */
-.btn, .btn-sugerencias {
+/* --- BOTONES --- */
+.btn {
     display: inline-block;
-    background-color: var(--dorado-oscuro) !important;
-    color: var(--negro) !important;
-    padding: 12px 25px;
-    border-radius: 5px;
+    background-color: var(--primario);
+    color: var(--negro);
+    padding: 15px 30px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 10px;
-    border: 3px solid var(--negro);
-    margin-top: 10px;
     transition: 0.3s;
+    border: 2px solid var(--primario);
 }
 
-.btn:hover, .btn-sugerencias:hover {
-    background-color: var(--dorado-oscuro) !important;
-    transform: translateY(-2px);
+.btn:hover {
+    background-color: transparent;
+    color: var(--primario);
 }
 
-/* --- CONTENEDORES --- */
+/* --- SECCIONES --- */
 .container {
     max-width: 1000px;
-    margin: 60px auto;
+    margin: 80px auto;
     padding: 0 20px;
     text-align: center;
 }
 
-h2 {
-    border-bottom: 2px solid var(--primario);
-    display: inline-block;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-}
-
-/* --- TARJETAS (Negras con letra blanca) --- */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
 .card {
-    background-color: var(--negro) !important;
-    color: var(--blanco) !important;
+    background-color: #222;
+    color: var(--blanco);
     padding: 30px;
     border-radius: 10px;
-    border: 3px solid var(--primario);
+    border: 1px solid var(--primario);
     text-align: left;
 }
 
-.card h3 {
-    color: var(--primario);
-    margin-top: 15px;
-}
-
-.icon-circle {
-    font-size: 2rem;
-    display: block;
-    text-align: center;
-}
-
-/* --- BUZÓN (Caja Dorada) --- */
 .buzon-quejas {
-    background-color: var(--negro);
-    color: var(--blanco);
-    border: 4px solid var(--primario); /* Encuadre dorado */
+    border: 3px solid var(--primario);
     padding: 40px;
+    background: #111;
     border-radius: 15px;
 }
 
-.buzon-quejas h2 {
-    color: var(--primario);
-    border: none;
-}
-
-/* --- FOOTER --- */
-footer {
-    background-color: var(--negro);
-    color: var(--blanco);
-    padding: 40px 20px;
-    border-top: 3px solid var(--primario);
-    text-align: center;
+/* Ajuste Móvil */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        padding-top: 40px;
+    }
+    .hero-text {
+        text-align: center;
+        padding: 20px;
+    }
+    .hero-text h1 { font-size: 2.5rem; }
+    .profile-img { height: 350px; }
 }
