@@ -86,7 +86,7 @@ body {
 
 /* --- Tarjetas de Propuestas --- */
 .card {
-    background: var(--blanco);
+    background: var(--negro);
     padding: 30px;
     border-radius: 8px;
     border: 1px solid #eee;
@@ -158,7 +158,7 @@ footer {
 }
 
 .buzon-quejas {
-    background-color: #ffffff;
+    background-color: #1a1a1a;
     border: 2px dashed var(--primary); /* Estilo de borde discontinuo para que parezca un "buzón" */
     padding: 30px;
     border-radius: 15px;
