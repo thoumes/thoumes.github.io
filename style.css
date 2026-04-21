@@ -9,8 +9,8 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     margin: 0;
-    color: var(--negro);
-    background-color: var(--blanco);
+    color: var(--blanco);
+    background-color: var(--negro);
     scroll-behavior: smooth;
 }
 
@@ -53,11 +53,10 @@ body {
     font-size: 0.9rem;
 }
 
-/* --- HERO (Cabecera) --- */
 /* --- HERO (Ajustado para texto izquierda / foto derecha) --- */
 .hero {
-    background-color: var(--negro);
-    color: var(--blanco);
+    background-color: var(--blanco);
+    color: var(--negro);
     padding: 80px 20px;
     display: flex;
     justify-content: center; /* Centra el bloque en pantallas grandes */
@@ -69,18 +68,18 @@ body {
     display: flex;
     align-items: center; /* Alinea verticalmente al centro */
     justify-content: space-between; /* Separa texto de imagen */
-    gap: 40px;
+    gap: 30px;
 }
 
 .hero-text {
     flex: 1; /* Toma el espacio disponible */
-    text-align: left; /* Alinea todo el texto a la izquierda */
+    text-align: center; /* Alinea todo el texto a la izquierda */
 }
 
 .hero-text h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    color: var(--blanco);
+    color: var(--negro);
 }
 
 .hero-image {
@@ -90,12 +89,8 @@ body {
 }
 
 .profile-img {
-    width: 300px; /* La hacemos un poco más grande ya que ahora tiene espacio */
-    height: 300px;
-    border-radius: 20px; /* Si prefieres cuadrada con bordes redondeados en vez de círculo */
-    border: 3px solid var(--primario);
-    object-fit: cover;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    width: 500px; /* La hacemos un poco más grande ya que ahora tiene espacio */
+    height: 500px;
 }
 
 /* Ajuste para móviles (para que se vea uno encima de otro en pantallas pequeñas) */
@@ -161,7 +156,7 @@ h2 {
     color: var(--blanco) !important;
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid var(--primario);
+    border: 3px solid var(--primario);
     text-align: left;
 }
 
