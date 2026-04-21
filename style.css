@@ -75,3 +75,28 @@ footer {
     padding: 20px;
     margin-top: 50px;
 }
+
+.buzon-quejas {
+    background-color: #ffffff;
+    border: 2px dashed var(--primary); /* Estilo de borde discontinuo para que parezca un "buzón" */
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 40px;
+}
+
+.btn-sugerencias {
+    display: inline-block;
+    background-color: #dc2626; /* Rojo suave para indicar "Quejas/Sugerencias" o usa var(--primary) para azul */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+.btn-sugerencias:hover {
+    background-color: #b91c1c; /* Un rojo más oscuro al pasar el ratón */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
