@@ -55,8 +55,8 @@ body {
 
 /* --- HERO (Ajustado para texto izquierda / foto derecha) --- */
 .hero {
-    background-color: var(--negro);
-    color: var(--blanco);
+    background-color: var(--primario);
+    color: var(--negro);
     padding: 80px 20px;
     display: flex;
     justify-content: center; /* Centra el bloque en pantallas grandes */
@@ -113,13 +113,14 @@ body {
 /* --- BOTONES (Dorados) --- */
 .btn, .btn-sugerencias {
     display: inline-block;
-    background-color: var(--primario) !important;
+    background-color: var(--dorado-oscuro) !important;
     color: var(--negro) !important;
     padding: 12px 25px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    border: none;
+    border-radius: 10px;
+    border: 3px solid var(--negro);
     margin-top: 10px;
     transition: 0.3s;
 }
