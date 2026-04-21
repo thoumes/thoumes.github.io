@@ -55,8 +55,8 @@ body {
 
 /* --- HERO (Ajustado para texto izquierda / foto derecha) --- */
 .hero {
-    background-color: var(--blanco);
-    color: var(--negro);
+    background-color: var(--negro);
+    color: var(--blanco);
     padding: 80px 20px;
     display: flex;
     justify-content: center; /* Centra el bloque en pantallas grandes */
@@ -68,7 +68,7 @@ body {
     display: flex;
     align-items: center; /* Alinea verticalmente al centro */
     justify-content: space-between; /* Separa texto de imagen */
-    gap: 30px;
+    gap: 40px;
 }
 
 .hero-text {
@@ -89,8 +89,8 @@ body {
 }
 
 .profile-img {
-    width: 500px; /* La hacemos un poco más grande ya que ahora tiene espacio */
-    height: 500px;
+    width: 300px; /* La hacemos un poco más grande ya que ahora tiene espacio */
+    height: 300px;
 }
 
 /* Ajuste para móviles (para que se vea uno encima de otro en pantallas pequeñas) */
