@@ -86,24 +86,26 @@ body {
 
 /* --- Tarjetas de Propuestas --- */
 .card {
-    background: var(--negro);
+    background-color: var(--negro) !important; /* Fondo negro */
+    color: var(--blanco) !important; /* Letras blancas */
     padding: 30px;
-    border-radius: 8px;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    border: 1px solid var(--primario); /* Borde dorado fino */
     transition: 0.3s;
+}
+
+.card h3 {
+    color: var(--primario); /* El título de la tarjeta en dorado */
+}
+
+.card p {
+    color: var(--blanco); /* El texto de la descripción en blanco */
 }
 
 .card:hover {
     border-color: var(--primario); /* Al pasar el ratón se ilumina el borde en dorado */
 }
 
-.card h3 {
-    color: var(--negro);
-    border-bottom: 2px solid var(--primario);
-    display: inline-block;
-    margin-bottom: 15px;
-}
 
 /* --- Footer --- */
 footer {
@@ -130,14 +132,6 @@ footer {
     margin-top: 30px;
 }
 
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-}
-
 .card:hover {
     transform: translateY(-5px);
 }
@@ -148,21 +142,32 @@ footer {
 
 .btn {
     display: inline-block;
-    background: white;
-    color: var(--primary);
+    background-color: var(--primario) !important; /* Color dorado siempre */
+    color: var(--negro) !important; /* Texto negro para que resalte */
     padding: 12px 24px;
-    border-radius: 25px;
+    border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 20px;
+    border: 2px solid var(--primario);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--negro) !important;
+    color: var(--primario) !important; /* Al pasar el ratón se invierten los colores */
 }
 
 .buzon-quejas {
-    background-color: #1a1a1a;
-    border: 2px dashed var(--primary); /* Estilo de borde discontinuo para que parezca un "buzón" */
-    padding: 30px;
+    background-color: var(--negro); /* Fondo oscuro para que resalte el borde */
+    border: 3px solid var(--primario); /* Caja dorada gruesa */
+    padding: 40px;
     border-radius: 15px;
-    margin-top: 40px;
+    margin: 40px auto;
+    color: var(--blanco); /* Texto dentro del buzón en blanco */
+}
+
+.buzon-quejas h2 {
+    color: var(--primario); /* Título del buzón en dorado */
 }
 
 .btn-sugerencias {
@@ -182,12 +187,12 @@ footer {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 .navbar {
-    background-color: var(--dark);
+    background-color: var(--negro) !important; /* Fuerza el color negro sólido */
     padding: 1rem 0;
-    position: sticky; /* Se queda pegado arriba */
+    position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 2px solid var(--primario); /* Línea dorada divisoria */
 }
 
 .nav-container {
