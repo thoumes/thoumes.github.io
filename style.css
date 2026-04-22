@@ -39,7 +39,8 @@ body {
 }
 
 .nav-links {
-    display: flex;        /* Pone los elementos en fila */
+    display: flex;  
+    flex-direction: row/* Pone los elementos en fila */
     list-style: none;     /* Quita los puntos de la lista */
     margin: 0;
     padding: 0;
