@@ -1,6 +1,5 @@
 :root {
     --primario: #D4AF37;
-    --dorado-oscuro: #B8860B;
     --negro: #1a1a1a;
     --blanco: #ffffff;
 }
@@ -105,7 +104,7 @@ h2 {
     text-transform: uppercase;
 }
 
-/* EXPERIENCIA - Línea de tiempo */
+/* EXPERIENCIA - Timeline */
 .timeline {
     display: flex;
     flex-direction: column;
@@ -120,7 +119,6 @@ h2 {
     border-left: 6px solid var(--primario);
     text-align: left;
     border-radius: 0 15px 15px 0;
-    position: relative;
 }
 
 .date {
@@ -138,7 +136,7 @@ h2 {
     font-size: 1.6rem;
 }
 
-/* TARJETAS */
+/* GRID Y TARJETAS */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -155,7 +153,7 @@ h2 {
 
 .card h3 { color: var(--primario); }
 
-/* BUZÓN */
+/* BUZÓN Y PIE */
 .buzon-quejas {
     border: 4px solid var(--primario);
     padding: 50px;
@@ -163,7 +161,6 @@ h2 {
     border-radius: 20px;
 }
 
-/* BOTONES */
 .btn {
     display: inline-block;
     background-color: var(--primario);
@@ -176,7 +173,6 @@ h2 {
     margin-top: 20px;
 }
 
-/* FOOTER */
 footer {
     padding: 60px 20px;
     border-top: 4px solid var(--primario);
