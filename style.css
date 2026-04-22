@@ -13,7 +13,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* NAVBAR */
+/* NAVBAR - Corregida para horizontal */
 .navbar {
     background-color: var(--negro);
     padding: 1rem 0;
@@ -32,10 +32,30 @@ body {
     padding: 0 20px;
 }
 
-.logo, .nav-links a {
+.logo {
     color: var(--blanco);
     text-decoration: none;
     font-weight: bold;
+}
+
+.nav-links {
+    display: flex;        /* Pone los elementos en fila */
+    list-style: none;     /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    gap: 20px;            /* Espacio entre botones */
+}
+
+.nav-links a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primario);
 }
 
 /* HERO */
