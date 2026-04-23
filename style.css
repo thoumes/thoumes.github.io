@@ -13,10 +13,10 @@ body {
     scroll-behavior: smooth;
 }
 
-/* --- NAVBAR (Escritorio: Normal / Móvil: Gruesa) --- */
+/* --- NAVBAR ESCRITORIO --- */
 .navbar {
     background-color: var(--negro);
-    padding: 1.2rem 0;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -32,31 +32,13 @@ body {
     padding: 0 20px;
 }
 
-.logo {
-    color: var(--blanco);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
+.logo { color: var(--blanco); text-decoration: none; font-weight: bold; }
+.nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
+.nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 25px;
-}
-
-.nav-links a {
-    color: var(--blanco);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-/* --- HERO ESCRITORIO (Texto Izquierda / Foto Derecha) --- */
+/* --- HERO ESCRITORIO (TEXTO IZQUIERDA / FOTO DERECHA) --- */
 .hero {
-    background-image: url('esei1.png');
+    background-image: url('esei.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -82,7 +64,7 @@ body {
 
 .hero-text {
     flex: 1;
-    text-align: left; /* En PC a la izquierda */
+    text-align: left; /* IZQUIERDA EN PC */
     padding-bottom: 100px;
 }
 
@@ -90,19 +72,13 @@ body {
     font-size: 4rem;
     color: var(--primario);
     margin: 0;
-    line-height: 1.1;
     text-transform: uppercase;
-}
-
-.subtitle {
-    font-size: 1.4rem;
-    margin-top: 15px;
 }
 
 .hero-image {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* DERECHA EN PC */
 }
 
 .profile-img {
@@ -113,112 +89,68 @@ body {
 }
 
 /* --- SECCIONES COMUNES --- */
-.container {
-    max-width: 1000px;
-    margin: 100px auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 2.8rem;
-    color: var(--primario);
-    border-bottom: 3px solid var(--primario);
-    display: inline-block;
-    padding-bottom: 10px;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-}
-
-.timeline, .grid {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    max-width: 850px;
-    margin: 0 auto;
-}
+.container { max-width: 1000px; margin: 100px auto; padding: 0 20px; text-align: center; }
+h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; margin-bottom: 50px; text-transform: uppercase; }
 
 .timeline-item, .card {
     background-color: #222;
     padding: 30px;
     border-left: 6px solid var(--primario);
     text-align: left;
-    border-radius: 0 15px 15px 0;
+    margin-bottom: 30px; /* Separación corregida */
 }
 
-.card { border: 1px solid var(--primario); }
-
-.btn {
-    display: inline-block;
-    background-color: var(--primario);
-    color: var(--negro);
-    padding: 15px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
-}
+.btn { display: inline-block; background-color: var(--primario); color: var(--negro); padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px; }
 
 /* =======================================================
-   VERSION MÓVIL (Solo se activa en pantallas pequeñas)
+   VERSION MÓVIL (CARTEL VERTICAL IMPACTANTE)
    ======================================================= */
 @media (max-width: 768px) {
-    /* Navbar más gruesa */
-    .navbar {
-        padding: 2.5rem 0; 
-    }
+    /* Navbar Masiva */
+    .navbar { padding: 2.5rem 0; }
+    .nav-container { flex-direction: column; gap: 15px; }
 
-    .nav-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    /* Hero ocupa toda la pantalla del móvil */
-    .hero {
-        height: 100vh;
-        background-attachment: scroll; /* Mejor rendimiento en móvil */
-    }
-
-    .hero-overlay {
-        height: 100%;
-        padding: 0;
-        align-items: center;
-    }
+    /* Hero Pantalla Completa */
+    .hero { height: 100vh; background-attachment: scroll; }
+    .hero-overlay { height: 100%; padding: 0; align-items: center; }
 
     .hero-container {
         flex-direction: column;
         height: 100%;
-        justify-content: space-between; /* Texto arriba, foto abajo */
+        justify-content: flex-start; /* Todo hacia arriba para juntar piezas */
         align-items: center;
-        max-width: 500px; /* Web estrecha en móvil */
+        padding: 0;
     }
 
     .hero-text {
-        text-align: center; /* Texto centrado */
-        padding-top: 40px;
+        text-align: center;
+        padding-top: 50px;
         padding-bottom: 0;
+        margin-bottom: -20px; /* Juntamos el texto con la foto */
+        z-index: 10;
     }
 
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem; /* LETRAS GIGANTES EN MÓVIL */
+        line-height: 1.0;
     }
+
+    .subtitle { font-size: 1.2rem; margin-bottom: 20px; }
 
     .hero-image {
         width: 100%;
+        flex: 1; /* Ocupa el resto del espacio */
+        display: flex;
+        align-items: flex-end; /* Pega la foto al suelo del móvil */
         justify-content: center;
     }
 
     .profile-img {
-        height: 50vh; /* La foto ocupa la mitad inferior de la pantalla */
+        height: 60vh; /* Foto muy grande */
         mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     }
 
-    /* Contenido más estrecho en móvil */
-    .container {
-        max-width: 500px;
-        margin: 60px auto;
-    }
-
-    h2 { font-size: 2rem; }
+    /* Estrechez del contenido */
+    .container { max-width: 500px; margin: 60px auto; }
 }
