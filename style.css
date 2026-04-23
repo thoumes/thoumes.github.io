@@ -56,7 +56,7 @@ body {
 
 /* HERO CON FONDO ESEI */
 .hero {
-    background-image: url('esei.png');
+    background-image: url('esei1.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Efecto elegante al hacer scroll */
