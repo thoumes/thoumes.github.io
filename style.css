@@ -13,10 +13,10 @@ body {
     scroll-behavior: smooth;
 }
 
-/* NAVBAR */
+/* NAVBAR - Más gruesa */
 .navbar {
     background-color: var(--negro);
-    padding: 1rem 0;
+    padding: 1.5rem 0; /* Aumentado el grosor */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -24,7 +24,7 @@ body {
 }
 
 .nav-container {
-    max-width: 1100px;
+    max-width: 800px; /* Navbar más estrecha */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -36,159 +36,153 @@ body {
     color: var(--blanco);
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .nav-links {
     display: flex;
-    flex-direction: row;
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 25px;
+    gap: 20px;
 }
 
 .nav-links a {
     color: var(--blanco);
     text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
 }
 
-/* HERO CON FONDO ESEI */
+/* HERO - OCUPA TODA LA PANTALLA (100vh) */
 .hero {
     background-image: url('esei1.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    position: relative;
+    height: 100vh; /* Ocupa el 100% del alto de la pantalla */
+    display: flex;
+    flex-direction: column;
     border-bottom: 5px solid var(--primario);
 }
 
 .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 80px 0 0 0;
-    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    flex: 1; /* Rellena todo el espacio del hero */
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .hero-container {
-    max-width: 1200px;
+    max-width: 800px; /* Hero mucho más estrecho */
     width: 100%;
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 30px;
+    flex-direction: column; /* Texto arriba de la foto por defecto */
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+    justify-content: space-between; /* Empuja el texto arriba y la foto abajo */
 }
 
 .hero-text {
-    flex: 1.2;
-    text-align: center;
-    padding-bottom: 80px;
+    padding-top: 40px;
 }
 
 .hero-text h1 {
-    font-size: 4rem;
+    font-size: 3.2rem;
     color: var(--primario);
     margin: 0;
     line-height: 1.1;
     text-transform: uppercase;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
 }
 
 .subtitle {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-top: 15px;
     color: var(--blanco);
 }
 
 .hero-image {
-    flex: 1;
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .profile-img {
-    height: 600px;
+    height: 55vh; /* Se ajusta proporcionalmente al alto de la pantalla */
     width: auto;
     object-fit: cover;
-    display: block;
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
-/* SECCIONES GENERALES */
+/* CONTENEDORES ESTRECHOS */
 .container {
-    max-width: 1100px;
+    max-width: 700px; /* Web mucho más estrecha y legible */
     margin: 100px auto;
-    padding: 0 20px;
+    padding: 0 25px;
     text-align: center;
 }
 
 h2 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     color: var(--primario);
     border-bottom: 3px solid var(--primario);
     display: inline-block;
-    padding-bottom: 10px;
-    margin-bottom: 50px;
+    padding-bottom: 5px;
+    margin-bottom: 40px;
     text-transform: uppercase;
 }
 
-/* EXPERIENCIA - Corrección de separación */
+/* EXPERIENCIA */
 .timeline {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    max-width: 850px;
-    margin: 0 auto;
+    gap: 20px;
 }
 
 .timeline-item {
     background-color: #222;
-    padding: 30px;
-    border-left: 6px solid var(--primario);
+    padding: 25px;
+    border-left: 5px solid var(--primario);
     text-align: left;
-    border-radius: 0 15px 15px 0;
-    margin-bottom: 10px; /* Separación extra */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin-bottom: 15px;
+    border-radius: 0 10px 10px 0;
 }
 
 .date {
-    display: block;
     color: var(--primario);
     font-weight: bold;
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
-/* PROPUESTAS - Grid con gap forzado */
+/* PROPUESTAS */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px !important;
-    padding: 20px 0;
+    display: flex;
+    flex-direction: column; /* Tarjetas una debajo de otra por el diseño estrecho */
+    gap: 25px;
 }
 
 .card {
     background-color: #222;
-    padding: 40px;
+    padding: 30px;
     border-radius: 12px;
     border: 1px solid var(--primario);
     text-align: left;
-    margin-bottom: 20px; /* Asegura separación si el grid falla */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .icon-circle {
-    font-size: 2.5rem;
-    display: block;
+    font-size: 2rem;
     margin-bottom: 10px;
+    display: block;
 }
 
-/* BUZÓN Y BOTONES */
+/* BUZÓN */
 .buzon-quejas {
-    border: 4px solid var(--primario);
-    padding: 60px 40px;
+    border: 3px solid var(--primario);
+    padding: 40px 25px;
     background-color: #111;
     border-radius: 20px;
 }
@@ -197,58 +191,38 @@ h2 {
     display: inline-block;
     background-color: var(--primario);
     color: var(--negro);
-    padding: 15px 30px;
+    padding: 14px 28px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     border: 2px solid var(--primario);
     margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 footer {
-    padding: 60px 20px;
-    border-top: 4px solid var(--primario);
+    padding: 50px 20px;
+    border-top: 3px solid var(--primario);
     text-align: center;
+    font-size: 0.9rem;
 }
 
-/* --- OPTIMIZACIÓN MÓVIL --- */
-@media (max-width: 768px) {
-    .nav-links {
-        gap: 12px;
+/* RESPONSIVE MÓVIL ESPECÍFICO */
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 2.2rem;
     }
     
-    .nav-links a {
-        font-size: 0.75rem;
-    }
-
-    .hero-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-    }
-
-    .hero-text {
-        padding: 40px 15px;
-        order: 1; /* Texto arriba */
-    }
-
-    .hero-image {
-        order: 2; /* Foto abajo */
-        width: 100%;
-        justify-content: center;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
-
     .profile-img {
-        height: 450px;
-        mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        height: 50vh;
     }
 
-    h2 {
-        font-size: 2rem;
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
     }
 }
