@@ -42,13 +42,13 @@ body {
     background-position: center;
     background-attachment: fixed;
     position: relative;
+    border-bottom: none;
 }
 
-/* HERO ESCRITORIO (PC) - SE QUEDA INTACTO */
+/* --- HERO ESCRITORIO (BLOQUEADO - PERFECTO) --- */
 @media (min-width: 769px) {
     .hero-overlay {
         background-color: rgba(0, 0, 0, 0.7);
-        padding: 0;
         display: flex;
         justify-content: center;
         height: 85vh;
@@ -71,91 +71,85 @@ body {
     .profile-img { height: 90%; width: auto; display: block; position: relative; bottom: -5px; z-index: 5; }
 }
 
-/* SECCIONES Y CARTAS */
-.container { max-width: 1000px; margin: 100px auto; padding: 0 20px; text-align: center; }
+/* SECCIONES COMUNES */
+.container { max-width: 1100px; margin: 120px auto; padding: 0 20px; text-align: center; }
 h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; padding-bottom: 10px; margin-bottom: 60px; text-transform: uppercase; }
-
-.timeline-item, .card {
-    background-color: #222; padding: 30px; border-left: 6px solid var(--primario);
-    text-align: left; border-radius: 0 15px 15px 0; margin-bottom: 40px !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
+.timeline-item, .card { background-color: #222; padding: 30px; border-left: 6px solid var(--primario); text-align: left; margin-bottom: 40px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px !important; }
-
-/* BUZÓN DE SUGERENCIAS */
-.buzon-quejas {
-    border: 3px solid var(--primario) !important;
-    padding: 80px 50px; background: #1a1a1a; border-radius: 25px;
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); max-width: 900px; margin: 100px auto; text-align: center;
-}
-.btn-special { background-color: var(--primario) !important; color: var(--negro) !important; padding: 20px 50px !important; font-weight: bold; border-radius: 10px; display: inline-block; text-decoration: none; }
-
 .btn { display: inline-block; background-color: var(--primario); color: var(--negro); padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 25px; }
 
-footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
+/* BUZÓN SUGERENCIAS */
+.buzon-quejas { border: 3px solid var(--primario) !important; padding: 80px 50px; background: #1a1a1a; border-radius: 25px; max-width: 900px; margin: 100px auto; text-align: center; }
+.btn-special { background-color: var(--primario) !important; color: var(--negro) !important; padding: 15px 30px !important; font-weight: bold; border-radius: 10px; display: inline-block; text-decoration: none; }
 
 /* =======================================================
-   OPTIMIZACIÓN MÓVIL (CORRECCIÓN TOTAL DE IMAGEN Y TEXTO)
+   OPTIMIZACIÓN MÓVIL (TEXTO ARRIBA / IMAGEN ENTERA)
    ======================================================= */
 @media (max-width: 768px) {
-    .navbar { padding: 1rem 0; }
-    .nav-container { flex-direction: column; gap: 8px; }
-
-    .hero { height: auto; background-attachment: scroll; }
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        background-attachment: scroll;
+    }
 
     .hero-overlay {
-        background-color: rgba(0, 0, 0, 0.85); /* Más oscuro para que el texto resalte */
-        padding: 0;
+        background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro */
+        width: 100%;
+        height: 100%;
     }
 
     .hero-container {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        gap: 0;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100%;
+        padding-top: 50px; /* Texto bien arriba */
     }
 
-    /* TEXTO ARRIBA Y MASIVO */
+    /* BLOQUE TEXTO GIGANTE */
     .hero-text {
-        height: 60vh; /* Se queda arriba */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 40px 20px 0 20px;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
     }
 
     .hero-text h1 {
-        font-size: 4.8rem; /* TEXTO MUCHO MÁS GRANDE */
+        font-size: 4.5rem; /* NOMBRE MUCHO MÁS GRANDE */
         line-height: 0.9;
         color: var(--primario);
         margin: 0;
         text-transform: uppercase;
     }
 
-    .subtitle { font-size: 1.4rem; margin: 20px 0; font-weight: bold; }
+    .subtitle {
+        font-size: 1.4rem;
+        margin: 20px 0;
+        font-weight: bold;
+    }
 
-    /* IMAGEN ABAJO Y ENTERA */
+    /* BLOQUE IMAGEN ENTERA */
     .hero-image {
         width: 100%;
-        height: 40vh; /* Altura controlada para no estirarse */
         display: flex;
-        align-items: flex-end;
         justify-content: center;
-        overflow: visible; /* Para que no se corte */
+        align-items: flex-end;
+        padding-top: 30px;
+        margin-top: auto; /* Empuja la foto al final */
     }
 
     .profile-img {
-        height: 100%; /* Se ajusta al contenedor sin cortarse */
-        width: auto; 
-        max-width: 100%;
-        object-fit: contain; /* SE VE ENTERA */
+        width: 85%; /* No se estira lateralmente */
+        height: auto; /* Mantiene proporción para verse ENTERA */
+        max-width: 350px;
+        display: block;
         mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-        margin-bottom: -2px; /* Pegada al suelo */
+        margin-bottom: -5px; /* Pega con la sección de abajo */
     }
 
-    .container { margin: 40px auto; }
+    #sobre-mi { margin-top: 0; padding-top: 50px; }
+    h2 { font-size: 2.2rem; }
 }
+
+footer { padding: 40px 20px; border-top: 2px solid var(--primario); text-align: center; }
