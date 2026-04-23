@@ -16,14 +16,14 @@ html, body {
     overflow-x: hidden;
 }
 
-/* --- NAVBAR SIEMPRE VISIBLE (FIXED) --- */
+/* --- NAVBAR FIJA --- */
 .navbar {
     background-color: var(--negro);
     padding: 1.5rem 0;
-    position: fixed; /* CAMBIO: Ahora siempre se queda en pantalla */
+    position: fixed;
     top: 0;
     width: 100%;
-    z-index: 2000; /* Aseguramos que esté por encima de todo */
+    z-index: 2000;
     border-bottom: 2px solid var(--primario);
 }
 
@@ -48,7 +48,7 @@ html, body {
     background-attachment: fixed;
     position: relative;
     border-bottom: none; 
-    margin-top: 70px; /* Evita que el inicio del Hero quede tapado por la Navbar fija en PC */
+    margin-top: 70px; 
 }
 
 .hero-overlay {
@@ -177,23 +177,24 @@ h2 {
 footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
 
 /* =======================================================
-   VERSION MÓVIL (NAVBAR GIGANTE FIJA E IMPACTO)
+   VERSION MÓVIL (MÁS COMPACTA)
    ======================================================= */
 @media (max-width: 768px) {
     .navbar { 
-        padding: 3.5rem 0; 
+        padding: 1.5rem 0; /* REDUCIDA: Vuelve al tamaño normal de PC */
     }
-    .nav-container { flex-direction: column; gap: 20px; }
-    .logo { font-size: 1.4rem; }
-    .nav-links a { font-size: 1rem; }
+    .nav-container { flex-direction: column; gap: 8px; }
+    .logo { font-size: 1.1rem; }
+    .nav-links { gap: 12px; }
+    .nav-links a { font-size: 0.85rem; }
 
     .hero { 
         background-attachment: scroll; 
-        margin-top: 200px; /* Margen superior mayor en móvil por la navbar agrandada */
+        margin-top: 100px; /* Reducido para ajustarse a la navbar pequeña */
     }
     
     .hero-text {
-        height: 100vh;
+        height: 60vh; /* REDUCIDO: El texto ya no ocupa toda la pantalla */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -203,31 +204,32 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
     }
 
     .hero-text h1 { 
-        font-size: 4.8rem; 
-        line-height: 0.9; 
+        font-size: 3.5rem; /* REDUCIDO: Texto más contenido */
+        line-height: 1.0; 
         color: var(--primario); 
         text-transform: uppercase;
-        text-shadow: 2px 2px 15px rgba(0,0,0,0.9); 
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.8); 
     }
 
     .subtitle { 
-        font-size: 1.4rem; 
-        margin: 25px 0; 
+        font-size: 1.1rem; /* REDUCIDO */
+        margin: 15px 0; 
         font-weight: bold; 
-        text-shadow: 2px 2px 10px rgba(0,0,0,1);
+        text-shadow: 2px 2px 8px rgba(0,0,0,1);
     }
 
     .hero-image {
         width: 100%;
-        height: 100vh;
+        height: 70vh; /* REDUCIDO */
         display: flex;
         align-items: flex-end;
         justify-content: center;
+        margin-top: -30px; /* CAMBIO: Sube la imagen para pegarla más al texto */
         margin-bottom: -5px;
     }
 
     .profile-img {
-        height: 90vh;
+        height: 65vh; /* REDUCIDO */
         width: auto;
         mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
