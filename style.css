@@ -13,10 +13,10 @@ body {
     scroll-behavior: smooth;
 }
 
-/* NAVBAR - Mucho más gruesa */
+/* --- NAVBAR (Gruesa y profesional) --- */
 .navbar {
     background-color: var(--negro);
-    padding: 2.5rem 0; /* Grosor aumentado */
+    padding: 2.5rem 0; /* Grosor aumentado como pediste */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -54,7 +54,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* HERO - CONFIGURACIÓN ESCRITORIO (Basada en tu código) */
+/* --- HERO ESCRITORIO (Formato intacto: split lateral) --- */
 .hero {
     background-image: url('esei1.png');
     background-size: cover;
@@ -76,14 +76,14 @@ body {
     max-width: 1200px;
     width: 100%;
     display: flex;
-    align-items: flex-end; /* La foto pisa la base */
-    justify-content: center;
+    align-items: flex-end; /* Foto pisa la línea dorada */
+    justify-content: space-between;
     gap: 30px;
 }
 
 .hero-text {
     flex: 1.2;
-    text-align: left; /* Texto a la izquierda en PC */
+    text-align: left; /* Nombre a la izquierda en PC */
     padding-bottom: 80px;
 }
 
@@ -105,7 +105,7 @@ body {
 .hero-image {
     flex: 1;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end; /* Foto a la derecha en PC */
 }
 
 .profile-img {
@@ -115,10 +115,10 @@ body {
     display: block;
 }
 
-/* SECCIONES Y CARTAS (Separación corregida) */
+/* --- SECCIONES Y SEPARACIÓN DE CARTAS (Corregido) --- */
 .container {
     max-width: 1100px;
-    margin: 100px auto;
+    margin: 120px auto;
     padding: 0 20px;
     text-align: center;
 }
@@ -129,24 +129,48 @@ h2 {
     border-bottom: 3px solid var(--primario);
     display: inline-block;
     padding-bottom: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     text-transform: uppercase;
 }
 
+/* Forzamos separación real en experiencia y propuestas */
 .timeline-item, .card {
     background-color: #222;
     padding: 30px;
     border-left: 6px solid var(--primario);
     text-align: left;
     border-radius: 0 15px 15px 0;
-    margin-bottom: 30px !important; /* Fuerza la separación */
+    margin-bottom: 40px !important; /* Espacio extra para que no se peguen */
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.date {
+    display: block;
+    color: var(--primario);
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px !important;
+}
+
+.icon-circle {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* --- BUZÓN Y BOTONES --- */
+.buzon-quejas {
+    border: 4px solid var(--primario);
+    padding: 60px 40px;
+    background-color: #111;
+    border-radius: 20px;
 }
 
 .btn {
@@ -161,10 +185,18 @@ h2 {
     margin-top: 20px;
 }
 
-/* --- OPTIMIZACIÓN MÓVIL GIGANTE Y SIN ESPACIOS --- */
+footer {
+    padding: 60px 20px;
+    border-top: 4px solid var(--primario);
+    text-align: center;
+}
+
+/* =======================================================
+   OPTIMIZACIÓN MÓVIL (Pantalla completa, letras gigantes)
+   ======================================================= */
 @media (max-width: 768px) {
     .hero {
-        height: 100vh; /* Hero pantalla completa en móvil */
+        height: 100vh; /* Ocupa toda la pantalla del móvil */
         background-attachment: scroll;
     }
 
@@ -178,15 +210,16 @@ h2 {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start; /* Texto arriba */
-        gap: 0; /* Sin espacios entre texto e imagen */
+        gap: 0;
         height: 100%;
     }
 
     .hero-text {
-        padding: 50px 15px 0 15px; /* Ajuste arriba */
+        padding: 60px 15px 0 15px; /* Más cerca del techo */
         text-align: center;
         order: 1;
-        margin-bottom: -20px; /* Hace que las letras "muerdan" el espacio de la foto */
+        margin-bottom: -30px; /* Juntamos letras con foto */
+        z-index: 10;
     }
 
     .hero-text h1 {
@@ -199,17 +232,17 @@ h2 {
         width: 100%;
         height: 100%;
         display: flex;
-        align-items: flex-end; /* Foto pegada abajo */
+        align-items: flex-end; /* Foto al suelo */
         justify-content: center;
     }
 
     .profile-img {
-        height: 55vh; /* Foto más grande en móvil */
+        height: 55vh; /* Foto imponente */
         mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     }
 
     .nav-links { gap: 12px; }
     .nav-links a { font-size: 0.75rem; }
-    h2 { font-size: 2rem; }
+    h2 { font-size: 2.2rem; }
 }
