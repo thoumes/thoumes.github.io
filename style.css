@@ -42,6 +42,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     position: relative;
+    border-bottom: 5px solid var(--primario);
 }
 
 .hero-overlay {
@@ -49,21 +50,24 @@ body {
     width: 100%;
 }
 
-/* HERO - ESCRITORIO (Split Lateral) */
+/* HERO ESCRITORIO - Configuración exacta para PC con alineación a la base */
 @media (min-width: 769px) {
-    .hero-overlay { padding: 100px 0; }
+    .hero-overlay { padding: 0; display: flex; justify-content: center; height: calc(100vh - 80px); /* Ocupa todo el alto menos nav */ }
     .hero-container {
         max-width: 1200px;
         margin: 0 auto;
         display: flex;
-        align-items: center;
+        align-items: stretch; /* Estira los contenedores */
         justify-content: space-between;
         padding: 0 40px;
+        width: 100%;
     }
-    .hero-text { flex: 1.2; text-align: left; }
+    .hero-text { flex: 1.2; text-align: left; display: flex; flex-direction: column; justify-content: center; padding-bottom: 0; }
     .hero-text h1 { font-size: 4rem; color: var(--primario); text-transform: uppercase; margin: 0; line-height: 1.1; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
-    .hero-image { flex: 1; display: flex; justify-content: flex-end; }
-    .profile-img { height: 600px; width: auto; object-fit: cover; display: block; }
+    
+    /* Imagen pegada abajo */
+    .hero-image { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; }
+    .profile-img { height: 95%; /* Ocupa casi todo el alto disponible */ width: auto; object-fit: cover; display: block; }
 }
 
 /* BOTONES */
@@ -82,12 +86,12 @@ body {
 .btn:hover { transform: scale(1.05); }
 
 /* SECCIONES */
-.container { max-width: 1100px; margin: 120px auto; padding: 0 20px; text-align: center; }
-h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; padding-bottom: 10px; margin-bottom: 60px; text-transform: uppercase; }
+.container { max-width: 1000px; margin: 100px auto; padding: 0 20px; text-align: center; }
+h2 { font-size: 2.5rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; margin-bottom: 40px; text-transform: uppercase; }
 
 .timeline-item, .card {
     background: #222; padding: 30px; border-left: 6px solid var(--primario);
-    margin-bottom: 40px !important; text-align: left;
+    margin-bottom: 30px !important; text-align: left;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
@@ -120,7 +124,7 @@ h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--p
 footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
 
 /* =======================================================
-   VERSION MÓVIL (PANTALLA 1: TEXTO | PANTALLA 2: FOTO)
+   VERSION MÓVIL (PANTALLA 1: TEXTO GIGANTE | PANTALLA 2: FOTO)
    ======================================================= */
 @media (max-width: 768px) {
     .navbar { padding: 2.5rem 0; }
@@ -138,9 +142,9 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         gap: 0;
     }
 
-    /* PANTALLA 1: Solo el texto impactante y botón al entrar */
+    /* PANTALLA 1: Texto impactante al entrar */
     .hero-text {
-        height: calc(100vh - 120px); /* Ajuste para que quepa en la pantalla inicial */
+        height: calc(100vh - 120px); 
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -151,7 +155,7 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
     }
 
     .hero-text h1 {
-        font-size: 3.5rem; /* GIGANTE EN MÓVIL */
+        font-size: 3.5rem; /* Letras gigantes en móvil */
         line-height: 1.0;
         color: var(--primario);
         margin: 0;
@@ -165,7 +169,7 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         width: 100%;
         height: 100vh; 
         display: flex;
-        align-items: flex-end;
+        align-items: flex-end; /* Pegada al suelo en móvil */
         justify-content: center;
     }
 
