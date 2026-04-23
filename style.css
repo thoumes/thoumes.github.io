@@ -13,10 +13,10 @@ body {
     scroll-behavior: smooth;
 }
 
-/* NAVBAR - Más gruesa */
+/* --- NAVBAR (Escritorio: Normal / Móvil: Gruesa) --- */
 .navbar {
     background-color: var(--negro);
-    padding: 1.5rem 0; /* Aumentado el grosor */
+    padding: 1.2rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -24,7 +24,7 @@ body {
 }
 
 .nav-container {
-    max-width: 800px; /* Navbar más estrecha */
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -36,7 +36,7 @@ body {
     color: var(--blanco);
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .nav-links {
@@ -44,53 +44,50 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-links a {
     color: var(--blanco);
     text-decoration: none;
-    font-size: 0.85rem;
-    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
-/* HERO - OCUPA TODA LA PANTALLA (100vh) */
+/* --- HERO ESCRITORIO (Texto Izquierda / Foto Derecha) --- */
 .hero {
     background-image: url('esei1.png');
     background-size: cover;
     background-position: center;
-    height: 100vh; /* Ocupa el 100% del alto de la pantalla */
-    display: flex;
-    flex-direction: column;
+    background-attachment: fixed;
+    position: relative;
     border-bottom: 5px solid var(--primario);
 }
 
 .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.75);
-    flex: 1; /* Rellena todo el espacio del hero */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 60px 0 0 0;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .hero-container {
-    max-width: 800px; /* Hero mucho más estrecho */
+    max-width: 1200px;
     width: 100%;
     display: flex;
-    flex-direction: column; /* Texto arriba de la foto por defecto */
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    height: 100%;
-    justify-content: space-between; /* Empuja el texto arriba y la foto abajo */
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 .hero-text {
-    padding-top: 40px;
+    flex: 1;
+    text-align: left; /* En PC a la izquierda */
+    padding-bottom: 100px;
 }
 
 .hero-text h1 {
-    font-size: 3.2rem;
+    font-size: 4rem;
     color: var(--primario);
     margin: 0;
     line-height: 1.1;
@@ -98,131 +95,130 @@ body {
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-top: 15px;
-    color: var(--blanco);
 }
 
 .hero-image {
-    width: 100%;
+    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 .profile-img {
-    height: 55vh; /* Se ajusta proporcionalmente al alto de la pantalla */
+    height: 650px;
     width: auto;
     object-fit: cover;
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    display: block;
 }
 
-/* CONTENEDORES ESTRECHOS */
+/* --- SECCIONES COMUNES --- */
 .container {
-    max-width: 700px; /* Web mucho más estrecha y legible */
+    max-width: 1000px;
     margin: 100px auto;
-    padding: 0 25px;
+    padding: 0 20px;
     text-align: center;
 }
 
 h2 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     color: var(--primario);
     border-bottom: 3px solid var(--primario);
     display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 40px;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
     text-transform: uppercase;
 }
 
-/* EXPERIENCIA */
-.timeline {
+.timeline, .grid {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
-.timeline-item {
-    background-color: #222;
-    padding: 25px;
-    border-left: 5px solid var(--primario);
-    text-align: left;
-    margin-bottom: 15px;
-    border-radius: 0 10px 10px 0;
-}
-
-.date {
-    color: var(--primario);
-    font-weight: bold;
-    font-size: 0.85rem;
-}
-
-/* PROPUESTAS */
-.grid {
-    display: flex;
-    flex-direction: column; /* Tarjetas una debajo de otra por el diseño estrecho */
-    gap: 25px;
-}
-
-.card {
+.timeline-item, .card {
     background-color: #222;
     padding: 30px;
-    border-radius: 12px;
-    border: 1px solid var(--primario);
+    border-left: 6px solid var(--primario);
     text-align: left;
+    border-radius: 0 15px 15px 0;
 }
 
-.icon-circle {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    display: block;
-}
-
-/* BUZÓN */
-.buzon-quejas {
-    border: 3px solid var(--primario);
-    padding: 40px 25px;
-    background-color: #111;
-    border-radius: 20px;
-}
+.card { border: 1px solid var(--primario); }
 
 .btn {
     display: inline-block;
     background-color: var(--primario);
     color: var(--negro);
-    padding: 14px 28px;
+    padding: 15px 30px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    border: 2px solid var(--primario);
     margin-top: 20px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
 }
 
-footer {
-    padding: 50px 20px;
-    border-top: 3px solid var(--primario);
-    text-align: center;
-    font-size: 0.9rem;
-}
+/* =======================================================
+   VERSION MÓVIL (Solo se activa en pantallas pequeñas)
+   ======================================================= */
+@media (max-width: 768px) {
+    /* Navbar más gruesa */
+    .navbar {
+        padding: 2.5rem 0; 
+    }
 
-/* RESPONSIVE MÓVIL ESPECÍFICO */
-@media (max-width: 600px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Hero ocupa toda la pantalla del móvil */
+    .hero {
+        height: 100vh;
+        background-attachment: scroll; /* Mejor rendimiento en móvil */
+    }
+
+    .hero-overlay {
+        height: 100%;
+        padding: 0;
+        align-items: center;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between; /* Texto arriba, foto abajo */
+        align-items: center;
+        max-width: 500px; /* Web estrecha en móvil */
+    }
+
+    .hero-text {
+        text-align: center; /* Texto centrado */
+        padding-top: 40px;
+        padding-bottom: 0;
+    }
+
     .hero-text h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
-    
+
+    .hero-image {
+        width: 100%;
+        justify-content: center;
+    }
+
     .profile-img {
-        height: 50vh;
+        height: 50vh; /* La foto ocupa la mitad inferior de la pantalla */
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     }
 
-    .nav-links {
-        gap: 10px;
+    /* Contenido más estrecho en móvil */
+    .container {
+        max-width: 500px;
+        margin: 60px auto;
     }
 
-    .nav-links a {
-        font-size: 0.7rem;
-    }
+    h2 { font-size: 2rem; }
 }
