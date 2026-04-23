@@ -60,10 +60,10 @@ body {
         justify-content: space-between;
         padding: 0 40px;
     }
-    .hero-text { flex: 1; text-align: left; }
-    .hero-text h1 { font-size: 4rem; color: var(--primario); text-transform: uppercase; margin: 0; }
+    .hero-text { flex: 1.2; text-align: left; }
+    .hero-text h1 { font-size: 4rem; color: var(--primario); text-transform: uppercase; margin: 0; line-height: 1.1; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
     .hero-image { flex: 1; display: flex; justify-content: flex-end; }
-    .profile-img { height: 600px; width: auto; object-fit: cover; }
+    .profile-img { height: 600px; width: auto; object-fit: cover; display: block; }
 }
 
 /* BOTONES */
@@ -82,15 +82,16 @@ body {
 .btn:hover { transform: scale(1.05); }
 
 /* SECCIONES */
-.container { max-width: 1000px; margin: 100px auto; padding: 0 20px; text-align: center; }
-h2 { font-size: 2.5rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; margin-bottom: 40px; text-transform: uppercase; }
+.container { max-width: 1100px; margin: 120px auto; padding: 0 20px; text-align: center; }
+h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; padding-bottom: 10px; margin-bottom: 60px; text-transform: uppercase; }
 
 .timeline-item, .card {
     background: #222; padding: 30px; border-left: 6px solid var(--primario);
-    margin-bottom: 30px !important; text-align: left;
+    margin-bottom: 40px !important; text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px !important; }
 
 /* BUZÓN DE SUGERENCIAS */
 .buzon-quejas {
@@ -101,10 +102,12 @@ h2 { font-size: 2.5rem; color: var(--primario); border-bottom: 3px solid var(--p
     box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); 
     max-width: 900px;
     margin: 100px auto;
+    text-align: center;
 }
 
 .buzon-icon { font-size: 4rem; margin-bottom: 20px; display: block; }
 .buzon-quejas h2 { border-bottom: none !important; margin-bottom: 20px; font-size: 2.5rem; }
+
 .btn-special { 
     background-color: var(--primario) !important; 
     color: var(--negro) !important; 
@@ -112,7 +115,6 @@ h2 { font-size: 2.5rem; color: var(--primario); border-bottom: 3px solid var(--p
     font-weight: bold; 
     border-radius: 10px; 
     display: inline-block; 
-    text-decoration: none; 
 }
 
 footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
@@ -124,47 +126,58 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
     .navbar { padding: 2.5rem 0; }
     .nav-container { flex-direction: column; gap: 10px; }
 
+    .hero {
+        height: auto;
+        background-attachment: scroll;
+    }
+
     .hero-container {
         display: flex;
         flex-direction: column;
         width: 100%;
+        gap: 0;
     }
 
-    /* PANTALLA 1: Solo el texto impactante al entrar */
+    /* PANTALLA 1: Solo el texto impactante y botón al entrar */
     .hero-text {
-        height: 85vh; 
+        height: calc(100vh - 120px); /* Ajuste para que quepa en la pantalla inicial */
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
         padding: 0 20px;
+        box-sizing: border-box;
     }
 
     .hero-text h1 {
-        font-size: 3.2rem;
-        line-height: 1.1;
+        font-size: 3.5rem; /* GIGANTE EN MÓVIL */
+        line-height: 1.0;
         color: var(--primario);
-        margin-bottom: 10px;
+        margin: 0;
+        text-transform: uppercase;
     }
 
-    .subtitle { font-size: 1.2rem; margin-bottom: 20px; }
+    .subtitle { font-size: 1.2rem; margin: 20px 0; }
 
-    /* PANTALLA 2: La imagen aparece al deslizar */
+    /* PANTALLA 2: La imagen aparece al deslizar hacia abajo */
     .hero-image {
         width: 100%;
-        height: 90vh; 
+        height: 100vh; 
         display: flex;
         align-items: flex-end;
         justify-content: center;
     }
 
     .profile-img {
-        height: 80%;
+        height: 80vh; /* Imagen en grande */
         width: auto;
         mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
     }
 
-    .container { margin: 50px auto; }
+    .container { 
+        max-width: 100%;
+        margin: 60px auto; 
+    }
 }
