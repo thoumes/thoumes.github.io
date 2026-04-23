@@ -12,7 +12,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* NAVBAR (Estilo PC/Móvil) */
+/* NAVBAR */
 .navbar {
     background-color: var(--negro);
     padding: 1.5rem 0;
@@ -35,39 +35,87 @@ body {
 .nav-links { display: flex; list-style: none; gap: 20px; margin: 0; }
 .nav-links a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; font-weight: bold; }
 
-/* HERO ESCRITORIO (PC) - BLOQUEADO PORQUE ESTABA PERFECTO */
+/* HERO - BASE */
+.hero {
+    background-image: url('esei1.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* --- HERO ESCRITORIO (BLOQUEADO - PERFECTO) --- */
 @media (min-width: 769px) {
-    .hero { background-image: url('esei1.png'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; border-bottom: 5px solid var(--primario); }
-    .hero-overlay { padding: 0; display: flex; justify-content: center; height: 85vh; }
-    .hero-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 40px; width: 100%; height: 100%; }
+    .hero-overlay {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        height: 85vh;
+        width: 100%;
+        align-items: flex-end;
+    }
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 0 40px;
+        width: 100%;
+        height: 100%;
+    }
     .hero-text { flex: 1.2; text-align: left; padding-bottom: 100px; }
     .hero-text h1 { font-size: 4rem; color: var(--primario); text-transform: uppercase; margin: 0; line-height: 1.1; }
-    .hero-image { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; height: 100%; }
-    .profile-img { height: 95%; width: auto; display: block; position: relative; bottom: -2px; z-index: 5; }
+    .hero-image { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; height: 100%; position: relative; }
+    .profile-img { height: 90%; width: auto; display: block; position: relative; bottom: -5px; z-index: 5; }
 }
 
 /* SECCIONES COMUNES */
 .container { max-width: 1000px; margin: 100px auto; padding: 0 20px; text-align: center; }
-h2 { font-size: 2.5rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; margin-bottom: 40px; text-transform: uppercase; }
-.timeline-item, .card { background: #222; padding: 30px; border-left: 6px solid var(--primario); margin-bottom: 30px !important; text-align: left; }
+h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; padding-bottom: 10px; margin-bottom: 60px; text-transform: uppercase; }
+
+.timeline-item, .card {
+    background-color: #222;
+    padding: 30px;
+    border-left: 6px solid var(--primario);
+    text-align: left;
+    border-radius: 0 15px 15px 0;
+    margin-bottom: 40px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px !important; }
+
+/* BUZÓN DE SUGERENCIAS */
+.buzon-quejas {
+    border: 3px solid var(--primario) !important;
+    padding: 80px 50px;
+    background: #1a1a1a;
+    border-radius: 25px;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+    max-width: 900px;
+    margin: 100px auto;
+    text-align: center;
+}
+.buzon-icon { font-size: 4rem; margin-bottom: 20px; display: block; }
+.btn-special { background-color: var(--primario) !important; color: var(--negro) !important; padding: 20px 50px !important; font-weight: bold; border-radius: 10px; display: inline-block; text-decoration: none; }
+
 .btn { display: inline-block; background-color: var(--primario); color: var(--negro); padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 25px; }
 
+footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
+
 /* =======================================================
-   OPTIMIZACIÓN MÓVIL (AJUSTE QUIRÚRGICO)
+   OPTIMIZACIÓN MÓVIL (AJUSTES FINALIZADOS)
    ======================================================= */
 @media (max-width: 768px) {
-    .navbar { padding: 2rem 0; }
+    .navbar { padding: 1.5rem 0; }
     .nav-container { flex-direction: column; gap: 10px; }
 
-    .hero {
-        background-image: url('esei1.png');
-        background-size: cover;
-        height: auto; /* Dejamos que el contenido mande */
-    }
+    .hero { height: auto; background-attachment: scroll; }
 
     .hero-overlay {
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.85); /* Fondo más oscuro para contraste */
         padding: 0;
     }
 
@@ -78,54 +126,44 @@ h2 { font-size: 2.5rem; color: var(--primario); border-bottom: 3px solid var(--p
         gap: 0;
     }
 
-    /* PANTALLA 1: TEXTO GIGANTE ARRIBA */
+    /* Texto arriba y más grande */
     .hero-text {
-        height: 100vh; /* Ocupa toda la pantalla inicial */
+        height: 65vh; /* Ventana no tan alta */
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Centrado vertical */
+        justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 0 20px;
+        padding: 40px 20px 0 20px;
     }
 
     .hero-text h1 {
-        font-size: 4.8rem; /* NOMBRE GIGANTE */
+        font-size: 4.2rem; /* Letras más grandes */
         line-height: 0.9;
         color: var(--primario);
         margin: 0;
         text-transform: uppercase;
     }
 
-    .subtitle {
-        font-size: 1.4rem;
-        margin: 20px 0;
-        font-weight: bold;
-    }
+    .subtitle { font-size: 1.3rem; margin: 20px 0; font-weight: bold; }
 
-    /* PANTALLA 2: IMAGEN GIGANTE PEGADA AL SUELO */
+    /* Imagen más pequeña y abajo */
     .hero-image {
         width: 100%;
-        height: 100vh; /* La imagen ocupa su propia pantalla al bajar */
+        height: 35vh; /* Altura de imagen reducida */
         display: flex;
-        align-items: flex-end; /* PEGADA AL SUELO */
+        align-items: flex-end;
         justify-content: center;
-        margin-bottom: -5px; /* Elimina cualquier hueco con la siguiente sección */
     }
 
     .profile-img {
-        height: 90vh; /* IMAGEN GIGANTE */
+        height: 90%; /* Imagen pequeña y elegante */
         width: auto;
-        object-fit: cover;
         mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    }
-
-    /* ELIMINAR ESPACIO CON LA SIGUIENTE SECCIÓN */
-    #sobre-mi {
-        margin-top: 0;
-        padding-top: 80px;
+        margin-bottom: 0;
     }
 
     .container { margin: 40px auto; }
+    h2 { font-size: 2.2rem; }
 }
