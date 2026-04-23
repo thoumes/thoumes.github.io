@@ -13,7 +13,7 @@ body {
     overflow-x: hidden;
 }
 
-/* --- NAVBAR BASE --- */
+/* NAVBAR */
 .navbar {
     background-color: var(--negro);
     padding: 1.5rem 0;
@@ -33,57 +33,82 @@ body {
 }
 
 .logo { color: var(--blanco); text-decoration: none; font-weight: bold; }
-.nav-links { display: flex; list-style: none; gap: 20px; margin: 0; padding: 0; }
+.nav-links { display: flex; list-style: none; gap: 25px; margin: 0; }
 .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-/* --- HERO ESCRITORIO (PC - PERFECTA) --- */
+/* --- HERO BASE --- */
+.hero {
+    background-image: url('esei1.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    border-bottom: none; 
+}
+
+/* OVERLAY OSCURECIDO (Aquí está el cambio clave) */
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.85); /* Mucho más oscuro para que resalte el oro */
+    width: 100%;
+}
+
+/* --- HERO ESCRITORIO (PC) --- */
 @media (min-width: 769px) {
-    .hero { background-image: url('esei1.png'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; border-bottom: 5px solid var(--primario); }
     .hero-overlay { padding: 0; display: flex; justify-content: center; height: 85vh; }
-    .hero-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 40px; width: 100%; height: 100%; }
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 0 40px;
+        width: 100%;
+        height: 100%;
+    }
     .hero-text { flex: 1.2; text-align: left; padding-bottom: 100px; }
-    .hero-text h1 { font-size: 4rem; color: var(--primario); text-transform: uppercase; margin: 0; line-height: 1.1; }
+    .hero-text h1 { font-size: 4rem; color: var(--primario); text-transform: uppercase; margin: 0; line-height: 1.1; text-shadow: 2px 2px 15px rgba(0,0,0,0.9); }
     .hero-image { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; height: 100%; }
     .profile-img { height: 95%; width: auto; display: block; position: relative; bottom: -2px; z-index: 5; }
 }
 
 /* SECCIONES */
-.container { max-width: 1000px; margin: 100px auto; padding: 0 20px; text-align: center; }
-h2 { font-size: 2.5rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; margin-bottom: 40px; text-transform: uppercase; }
+.container { max-width: 1100px; margin: 120px auto; padding: 0 20px; text-align: center; }
+h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; padding-bottom: 10px; margin-bottom: 60px; text-transform: uppercase; }
 
-.timeline, .grid { display: flex; flex-direction: column; gap: 30px; }
-.timeline-item, .card { background: #222; padding: 30px; border-left: 6px solid var(--primario); margin-bottom: 30px !important; text-align: left; border-radius: 0 15px 15px 0; }
-@media (min-width: 769px) { .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; } }
+.timeline-item, .card {
+    background-color: #222;
+    padding: 30px;
+    border-left: 6px solid var(--primario);
+    text-align: left;
+    border-radius: 0 15px 15px 0;
+    margin-bottom: 40px !important; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
 
-.btn { display: inline-block; background-color: var(--primario); color: var(--negro); padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 25px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px !important; }
 
-/* BUZÓN DE SUGERENCIAS */
-.buzon-quejas { border: 3px solid var(--primario) !important; padding: 60px 20px; border-radius: 20px; }
+.btn {
+    display: inline-block;
+    background-color: var(--primario);
+    color: var(--negro);
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
 footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
 
 /* =======================================================
-   VERSION MÓVIL (NAVBAR AGRANDADA Y HERO GIGANTE)
+   VERSION MÓVIL (NAVBAR AGRANDADA Y BACKGROUND OSCURO)
    ======================================================= */
 @media (max-width: 768px) {
-    /* NAVBAR AGRANDADA */
-    .navbar { 
-        padding: 3.5rem 0; /* MUCHO MÁS GRUESA */
-    }
-    .nav-container { 
-        flex-direction: column; 
-        gap: 20px; 
-    }
-    .logo {
-        font-size: 1.4rem; /* Logo más grande */
-    }
-    .nav-links {
-        gap: 15px;
-    }
-    .nav-links a {
-        font-size: 1rem; /* Enlaces más grandes */
-    }
+    .navbar { padding: 3.5rem 0; }
+    .nav-container { flex-direction: column; gap: 20px; }
+    .logo { font-size: 1.4rem; }
+    .nav-links a { font-size: 1rem; }
 
-    /* HERO IMPACTO GIGANTE */
     .hero-text {
         height: 100vh;
         display: flex;
@@ -93,7 +118,7 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         text-align: center;
         padding: 0 20px;
     }
-    .hero-text h1 { font-size: 4.8rem; line-height: 0.9; color: var(--primario); text-transform: uppercase; }
+    .hero-text h1 { font-size: 4.8rem; line-height: 0.9; color: var(--primario); text-transform: uppercase; text-shadow: 2px 2px 20px rgba(0,0,0,1); }
     .subtitle { font-size: 1.4rem; margin: 20px 0; font-weight: bold; }
 
     .hero-image {
@@ -111,13 +136,6 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     }
 
-    /* SECCIONES */
     #sobre-mi { margin-top: 0; padding-top: 80px; }
-    .timeline, .grid {
-        display: flex !important;
-        flex-direction: column !important;
-        height: auto !important;
-        overflow: visible !important;
-    }
-    .container { margin: 40px auto; max-width: 100%; }
+    .timeline, .grid { display: flex !important; flex-direction: column !important; }
 }
