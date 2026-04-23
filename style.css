@@ -43,11 +43,10 @@ body {
     background-position: center;
     background-attachment: fixed;
     position: relative;
-    /* Eliminamos el borde inferior para que la imagen pise directamente la siguiente sección */
     border-bottom: none; 
 }
 
-/* --- HERO ESCRITORIO (Ajuste para eliminar hueco) --- */
+/* --- HERO ESCRITORIO (BLOQUEADO - NO TOCAR) --- */
 @media (min-width: 769px) {
     .hero-overlay { 
         background-color: rgba(0, 0, 0, 0.7);
@@ -98,7 +97,6 @@ body {
         width: auto; 
         display: block;
         position: relative;
-        /* El truco final: bajamos la imagen un poco para que solape con el negro de abajo */
         bottom: -2px; 
         z-index: 5;
     }
@@ -112,7 +110,6 @@ body {
     text-align: center;
 }
 
-/* Primera sección después del hero para que la imagen la pise sin huecos */
 #sobre-mi {
     margin-top: 0;
     padding-top: 100px;
@@ -182,11 +179,11 @@ h2 {
 footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
 
 /* =======================================================
-   OPTIMIZACIÓN MÓVIL (CARTEL VERTICAL - TAMAÑO MAX)
+   OPTIMIZACIÓN MÓVIL (AJUSTES SOLICITADOS)
    ======================================================= */
 @media (max-width: 768px) {
-    .navbar { padding: 2.5rem 0; }
-    .nav-container { flex-direction: column; gap: 10px; }
+    .navbar { padding: 2rem 0; }
+    .nav-container { flex-direction: column; gap: 8px; }
 
     .hero { height: auto; background-attachment: scroll; }
 
@@ -203,42 +200,51 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         gap: 0;
     }
 
+    /* PANTALLA 1: TEXTO MÁS GRANDE Y VENTANA MÁS BAJA */
     .hero-text {
-        height: 90vh; /* Aumentado para dar más aire al texto grande */
+        height: 65vh; /* REDUCIDO (antes 85/90) para que no sea tan alta */
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end; /* Lo empujamos hacia abajo */
         align-items: center;
         text-align: center;
-        padding: 0 20px;
+        padding: 0 20px 40px 20px; /* Margen inferior para separarlo de la foto */
     }
 
     .hero-text h1 {
-        font-size: 4.5rem; /* LETRAS GIGANTES EN MÓVIL */
-        line-height: 0.9;
+        font-size: 5.5rem; /* TEXTO MUCHO MÁS GRANDE */
+        line-height: 0.85;
         color: var(--primario);
         margin: 0;
+        text-transform: uppercase;
     }
 
     .subtitle { 
-        font-size: 1.5rem; /* Subtítulo más grande */
-        margin: 25px 0; 
+        font-size: 1.8rem; /* Subtítulo más grande */
+        margin: 20px 0;
+        font-weight: bold;
     }
 
+    /* PANTALLA 2: IMAGEN MÁS GRANDE Y PEGADA AL CIERRE */
     .hero-image {
         width: 100%;
-        height: 100vh; /* Pantalla completa para la imagen */
+        height: 110vh; /* Altura aumentada para que la foto sea inmensa */
         display: flex;
         align-items: flex-end;
         justify-content: center;
     }
 
     .profile-img {
-        height: 95vh; /* IMAGEN CASI AL 100% DEL ALTO */
+        height: 100vh; /* FOTO OCUPA TODA LA PANTALLA AL HACER SCROLL */
         width: auto;
-        mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
         margin-bottom: 0;
-        bottom: 0;
+        object-fit: cover;
+    }
+
+    .container { 
+        max-width: 100%;
+        margin: 40px auto; 
     }
 }
