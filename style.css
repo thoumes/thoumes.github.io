@@ -36,60 +36,53 @@ body {
 .nav-links { display: flex; list-style: none; gap: 20px; margin: 0; }
 .nav-links a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; font-weight: bold; }
 
-/* HERO CONFIGURACIÓN GENERAL */
+/* HERO GENERAL */
 .hero {
-    background-image: url('esei1.png') !important;
-    background-size: cover;
-    background-position: center;
     position: relative;
+    overflow: hidden;
 }
 
-/* PC */
+/* ESCRITORIO (BLOQUEADO - PERFECTO) */
 @media (min-width: 769px) {
-    .hero { background-attachment: fixed; }
+    .hero { background-image: url('esei1.png'); background-size: cover; background-position: center; background-attachment: fixed; }
     .hero-overlay { background-color: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; height: 85vh; }
     .hero-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 40px; width: 100%; height: 100%; }
     .hero-text { flex: 1.2; text-align: left; padding-bottom: 100px; }
     .hero-text h1 { font-size: 4rem; color: var(--primario); text-transform: uppercase; margin: 0; line-height: 1.1; }
     .hero-image { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; height: 100%; }
-    .profile-img { height: 95%; width: auto; display: block; position: relative; bottom: -2px; }
+    .profile-img { height: 90%; width: auto; display: block; position: relative; bottom: -5px; }
 }
 
-/* SECCIONES */
-.container { max-width: 1000px; margin: 100px auto; padding: 0 20px; text-align: center; }
-h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; padding-bottom: 10px; margin-bottom: 60px; text-transform: uppercase; }
-.timeline-item, .card { background-color: #222; padding: 30px; border-left: 6px solid var(--primario); text-align: left; margin-bottom: 40px !important; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px !important; }
-.btn { display: inline-block; background-color: var(--primario); color: var(--negro); padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 25px; }
-
-/* BUZÓN */
-.buzon-quejas { border: 3px solid var(--primario); padding: 80px 50px; background: #1a1a1a; border-radius: 25px; text-align: center; }
-.btn-special { background-color: var(--primario); color: var(--negro); padding: 20px 50px; font-weight: bold; border-radius: 10px; display: inline-block; text-decoration: none; }
-
-/* =======================================================
-   MÓVIL (TEXTO GIGANTE ARRIBA, FOTO CENTRADA)
-   ======================================================= */
+/* MÓVIL (CORRECCIÓN TOTAL) */
 @media (max-width: 768px) {
-    .hero { background-attachment: scroll; }
-    
+    .hero {
+        background-image: url('esei1.png') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        height: auto;
+    }
+
     .hero-overlay {
-        background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro recuperado */
-        padding-bottom: 20px;
+        background-color: rgba(0, 0, 0, 0.85) !important; /* Fuerza fondo oscuro */
+        padding: 40px 0;
+        width: 100%;
     }
 
     .hero-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center !important; /* Centra todo horizontalmente */
         text-align: center;
+        width: 100%;
     }
 
     .hero-text {
-        padding: 50px 20px 10px 20px;
+        width: 100%;
+        padding: 20px;
     }
 
     .hero-text h1 {
-        font-size: 4.5rem; /* TEXTO MUCHO MÁS GRANDE */
+        font-size: 4.8rem !important; /* MÁS GRANDE */
         line-height: 0.9;
         color: var(--primario);
         margin: 0;
@@ -97,22 +90,23 @@ h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--p
     }
 
     .subtitle {
-        font-size: 1.3rem;
-        margin: 15px 0;
+        font-size: 1.4rem;
+        margin: 20px 0;
         font-weight: bold;
     }
 
     .hero-image {
         width: 100%;
         display: flex;
-        justify-content: center; /* CENTRADO TOTAL */
-        margin-top: 20px;
+        justify-content: center !important; /* CENTRADO FORZADO */
+        padding: 30px 0;
     }
 
     .profile-img {
-        width: 220px; /* Tamaño equilibrado */
-        height: auto;
+        width: 280px !important; /* Tamaño aumentado */
+        height: auto !important;
         display: block;
+        margin: 0 auto; /* Centrado clásico */
         mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
     }
@@ -121,4 +115,12 @@ h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--p
     h2 { font-size: 2.2rem; }
 }
 
+/* BOTONES Y OTROS */
+.container { max-width: 1000px; margin: 100px auto; padding: 0 20px; text-align: center; }
+h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; padding-bottom: 10px; margin-bottom: 60px; text-transform: uppercase; }
+.timeline-item, .card { background-color: #222; padding: 30px; border-left: 6px solid var(--primario); text-align: left; margin-bottom: 40px !important; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px !important; }
+.btn { display: inline-block; background-color: var(--primario); color: var(--negro); padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 25px; }
+.buzon-quejas { border: 3px solid var(--primario); padding: 80px 50px; background: #1a1a1a; border-radius: 25px; }
+.btn-special { background-color: var(--primario); color: var(--negro); padding: 15px 30px; font-weight: bold; border-radius: 10px; display: inline-block; text-decoration: none; }
 footer { padding: 40px 20px; border-top: 4px solid var(--primario); text-align: center; }
