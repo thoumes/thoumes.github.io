@@ -38,7 +38,7 @@ body {
 
 /* --- HERO ESCRITORIO (TEXTO IZQUIERDA / FOTO DERECHA) --- */
 .hero {
-    background-image: url('esei.png');
+    background-image: url('esei1.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
