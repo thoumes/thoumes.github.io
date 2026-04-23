@@ -6,13 +6,15 @@
 
 body {
     font-family: 'Inter', sans-serif;
+    line-height: 1.6;
     margin: 0;
     color: var(--blanco);
-    background-color: var(--negro);
+    background-color: var(--negro); /* FONDO NEGRO GARANTIZADO */
     scroll-behavior: smooth;
+    overflow-x: hidden; /* ESTRECHA LA WEB obligatoriamente */
 }
 
-/* NAVBAR */
+/* --- NAVBAR --- */
 .navbar {
     background-color: var(--negro);
     padding: 1.5rem 0;
@@ -35,121 +37,172 @@ body {
 .nav-links { display: flex; list-style: none; gap: 20px; margin: 0; }
 .nav-links a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; font-weight: bold; }
 
-/* HERO - BASE */
-.hero {
+/* =======================================================
+   RECONSTRUCCIÓN TOTAL DEL INICIO (PRINCIPAL/HERO)
+   ======================================================= */
+.candidatura-principal {
     background-image: url('esei1.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     position: relative;
+    /* Eliminamos el attachment fixed en movil para mejorar rendimiento */
+    background-attachment: scroll; 
     border-bottom: none;
 }
 
-/* --- HERO ESCRITORIO (BLOQUEADO - PERFECTO) --- */
+.main-overlay {
+    /* FONDO OSCURO GARANTIZADO rgba(0,0,0,0.85) */
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column; /* APILADO VERTICAL (Móvil) */
+    width: 100%;
+    gap: 0;
+}
+
+/* TEXTO ARRIBA Y MASIVO */
+.main-text {
+    height: 70vh; /* Ventana de texto alta para el impacto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px 0 20px;
+    box-sizing: border-box;
+}
+
+.main-text h1 {
+    font-size: 4.8rem; /* TEXTO GIGANTE EN MÓVIL */
+    line-height: 0.9;
+    color: var(--primario);
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin: 25px 0;
+    font-weight: bold;
+    color: var(--blanco);
+}
+
+/* IMAGEN ABAJO, PEQUEÑA Y ENTERA */
+.main-image {
+    width: 100%;
+    height: 30vh; /* Altura de imagen reducida (segunda pantalla) */
+    display: flex;
+    align-items: flex-end; /* Pegada al suelo */
+    justify-content: center;
+}
+
+.profile-img {
+    height: 90%; /* Imagen pequeña y elegante */
+    width: auto;
+    object-fit: cover;
+    display: block;
+    
+    /* Efecto de desvanecimiento hacia abajo */
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    
+    margin-bottom: -5px; /* SOLUCIÓN: Pisa la línea de separación para que no haya hueco */
+    z-index: 5;
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    background-color: var(--primario);
+    color: var(--negro);
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 25px;
+    transition: transform 0.3s;
+}
+
+/* SECCIONES COMUNES Y ESTRECHAS */
+.container {
+    max-width: 500px; /* WEB ESTRECHA EN MÓVIL obligatoriamente */
+    margin: 60px auto;
+    padding: 0 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Primera sección después del hero pegada a la foto */
+#sobre-mi {
+    margin-top: 0;
+    padding-top: 50px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: var(--primario);
+    border-bottom: 3px solid var(--primario);
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* Resto de elementos (timeline, cards, etc) */
+.timeline-item, .card {
+    background-color: #222;
+    padding: 25px;
+    border-left: 6px solid var(--primario);
+    text-align: left;
+    margin-bottom: 30px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px !important;
+}
+
+/* ... Mantén el buzón y el footer igual ... */
+
+/* =======================================================
+   VERSION PC (BLOQUEADO - PERFECTO)
+   ======================================================= */
 @media (min-width: 769px) {
-    .hero-overlay {
-        background-color: rgba(0, 0, 0, 0.7);
-        display: flex;
-        justify-content: center;
-        height: 85vh;
-        width: 100%;
-        align-items: flex-end;
-    }
-    .hero-container {
+    .candidatura-principal { background-attachment: fixed; }
+    
+    .main-overlay { padding: 0; display: flex; justify-content: center; height: 85vh; }
+    
+    .main-container {
         max-width: 1200px;
         margin: 0 auto;
         display: flex;
+        flex-direction: row; /* Split Lateral en PC */
         align-items: flex-end;
         justify-content: space-between;
         padding: 0 40px;
-        width: 100%;
         height: 100%;
     }
-    .hero-text { flex: 1.2; text-align: left; padding-bottom: 100px; }
-    .hero-text h1 { font-size: 4rem; color: var(--primario); text-transform: uppercase; margin: 0; line-height: 1.1; }
-    .hero-image { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; height: 100%; position: relative; }
-    .profile-img { height: 90%; width: auto; display: block; position: relative; bottom: -5px; z-index: 5; }
+
+    .main-text { 
+        flex: 1.2; 
+        height: 100%;
+        text-align: left; 
+        justify-content: center; 
+        padding: 0;
+    }
+    .main-text h1 { font-size: 4rem; }
+    .subtitle { font-size: 1.3rem; margin: 15px 0; }
+
+    .main-image { flex: 1; height: 100%; align-items: flex-end; }
+    .profile-img { height: 95%; max-height: 600px; margin-bottom: -5px; width: auto; object-fit: contain; }
+
+    .container { max-width: 1000px; margin: 120px auto; }
+    h2 { font-size: 2.8rem; }
+    .grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px !important; }
 }
-
-/* SECCIONES COMUNES */
-.container { max-width: 1100px; margin: 120px auto; padding: 0 20px; text-align: center; }
-h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; padding-bottom: 10px; margin-bottom: 60px; text-transform: uppercase; }
-.timeline-item, .card { background-color: #222; padding: 30px; border-left: 6px solid var(--primario); text-align: left; margin-bottom: 40px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px !important; }
-.btn { display: inline-block; background-color: var(--primario); color: var(--negro); padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 25px; }
-
-/* BUZÓN SUGERENCIAS */
-.buzon-quejas { border: 3px solid var(--primario) !important; padding: 80px 50px; background: #1a1a1a; border-radius: 25px; max-width: 900px; margin: 100px auto; text-align: center; }
-.btn-special { background-color: var(--primario) !important; color: var(--negro) !important; padding: 15px 30px !important; font-weight: bold; border-radius: 10px; display: inline-block; text-decoration: none; }
-
-/* =======================================================
-   OPTIMIZACIÓN MÓVIL (TEXTO ARRIBA / IMAGEN ENTERA)
-   ======================================================= */
-@media (max-width: 768px) {
-    .hero {
-        height: auto;
-        min-height: 100vh;
-        background-attachment: scroll;
-    }
-
-    .hero-overlay {
-        background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro */
-        width: 100%;
-        height: 100%;
-    }
-
-    .hero-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        height: 100%;
-        padding-top: 50px; /* Texto bien arriba */
-    }
-
-    /* BLOQUE TEXTO GIGANTE */
-    .hero-text {
-        width: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .hero-text h1 {
-        font-size: 4.5rem; /* NOMBRE MUCHO MÁS GRANDE */
-        line-height: 0.9;
-        color: var(--primario);
-        margin: 0;
-        text-transform: uppercase;
-    }
-
-    .subtitle {
-        font-size: 1.4rem;
-        margin: 20px 0;
-        font-weight: bold;
-    }
-
-    /* BLOQUE IMAGEN ENTERA */
-    .hero-image {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        padding-top: 30px;
-        margin-top: auto; /* Empuja la foto al final */
-    }
-
-    .profile-img {
-        width: 85%; /* No se estira lateralmente */
-        height: auto; /* Mantiene proporción para verse ENTERA */
-        max-width: 350px;
-        display: block;
-        mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-        margin-bottom: -5px; /* Pega con la sección de abajo */
-    }
-
-    #sobre-mi { margin-top: 0; padding-top: 50px; }
-    h2 { font-size: 2.2rem; }
-}
-
-footer { padding: 40px 20px; border-top: 2px solid var(--primario); text-align: center; }
