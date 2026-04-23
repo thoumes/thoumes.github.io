@@ -13,7 +13,7 @@ body {
     overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* --- NAVBAR BASE --- */
 .navbar {
     background-color: var(--negro);
     padding: 1.5rem 0;
@@ -33,10 +33,10 @@ body {
 }
 
 .logo { color: var(--blanco); text-decoration: none; font-weight: bold; }
-.nav-links { display: flex; list-style: none; gap: 20px; margin: 0; }
-.nav-links a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; font-weight: bold; }
+.nav-links { display: flex; list-style: none; gap: 20px; margin: 0; padding: 0; }
+.nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-/* HERO ESCRITORIO (Mantenemos tu versión PC perfecta) */
+/* --- HERO ESCRITORIO (PC - PERFECTA) --- */
 @media (min-width: 769px) {
     .hero { background-image: url('esei1.png'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; border-bottom: 5px solid var(--primario); }
     .hero-overlay { padding: 0; display: flex; justify-content: center; height: 85vh; }
@@ -51,39 +51,39 @@ body {
 .container { max-width: 1000px; margin: 100px auto; padding: 0 20px; text-align: center; }
 h2 { font-size: 2.5rem; color: var(--primario); border-bottom: 3px solid var(--primario); display: inline-block; margin-bottom: 40px; text-transform: uppercase; }
 
-/* LINEA DE TIEMPO Y CARTAS - Aseguramos que se vean todas */
-.timeline, .grid {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.timeline-item, .card {
-    background: #222;
-    padding: 30px;
-    border-left: 6px solid var(--primario);
-    text-align: left;
-    border-radius: 0 15px 15px 0;
-}
-
-/* En PC el grid sí puede ser de 2 columnas si quieres, o 1 para seguir la estrechez */
-@media (min-width: 769px) {
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-}
+.timeline, .grid { display: flex; flex-direction: column; gap: 30px; }
+.timeline-item, .card { background: #222; padding: 30px; border-left: 6px solid var(--primario); margin-bottom: 30px !important; text-align: left; border-radius: 0 15px 15px 0; }
+@media (min-width: 769px) { .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; } }
 
 .btn { display: inline-block; background-color: var(--primario); color: var(--negro); padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 25px; }
 
-/* BUZÓN */
+/* BUZÓN DE SUGERENCIAS */
 .buzon-quejas { border: 3px solid var(--primario) !important; padding: 60px 20px; border-radius: 20px; }
 footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
 
 /* =======================================================
-   VERSION MÓVIL (CORREGIDA)
+   VERSION MÓVIL (NAVBAR AGRANDADA Y HERO GIGANTE)
    ======================================================= */
 @media (max-width: 768px) {
-    .navbar { padding: 2rem 0; }
-    
-    /* Hero impacto gigante */
+    /* NAVBAR AGRANDADA */
+    .navbar { 
+        padding: 3.5rem 0; /* MUCHO MÁS GRUESA */
+    }
+    .nav-container { 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+    .logo {
+        font-size: 1.4rem; /* Logo más grande */
+    }
+    .nav-links {
+        gap: 15px;
+    }
+    .nav-links a {
+        font-size: 1rem; /* Enlaces más grandes */
+    }
+
+    /* HERO IMPACTO GIGANTE */
     .hero-text {
         height: 100vh;
         display: flex;
@@ -93,7 +93,6 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         text-align: center;
         padding: 0 20px;
     }
-
     .hero-text h1 { font-size: 4.8rem; line-height: 0.9; color: var(--primario); text-transform: uppercase; }
     .subtitle { font-size: 1.4rem; margin: 20px 0; font-weight: bold; }
 
@@ -105,7 +104,6 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         justify-content: center;
         margin-bottom: -5px;
     }
-
     .profile-img {
         height: 90vh;
         width: auto;
@@ -113,16 +111,13 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     }
 
-    /* SOBRE MÍ Y RESTO DE SECCIONES */
+    /* SECCIONES */
     #sobre-mi { margin-top: 0; padding-top: 80px; }
-    
-    /* Forzamos que la lista se vea completa y no se corte */
     .timeline, .grid {
         display: flex !important;
         flex-direction: column !important;
-        height: auto !important; /* Asegura que crezca según el contenido */
+        height: auto !important;
         overflow: visible !important;
     }
-
     .container { margin: 40px auto; max-width: 100%; }
 }
