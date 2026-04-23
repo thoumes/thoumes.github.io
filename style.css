@@ -2,150 +2,129 @@
     --primario: #D4AF37;
     --negro: #1a1a1a;
     --blanco: #ffffff;
+    --gris-oscuro: #222;
 }
 
+/* --- RESET --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    margin: 0;
     color: var(--blanco);
     background-color: var(--negro);
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
-/* --- NAVBAR (Gruesa y Profesional) --- */
+/* --- NAVBAR --- */
 .navbar {
-    background-color: var(--negro);
-    padding: 2.5rem 0;
+    background: var(--negro);
+    padding: 2.5rem 0; /* Barra gruesa */
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 2px solid var(--primario);
 }
-
 .nav-container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
 }
-
 .logo { color: var(--blanco); text-decoration: none; font-weight: bold; }
-.nav-links { display: flex; list-style: none; gap: 25px; margin: 0; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
 .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-/* --- HERO ESCRITORIO (Split Lateral) --- */
+/* --- HERO CORE --- */
 .hero {
-    background-image: url('esei1.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: url('esei1.png') no-repeat center center/cover;
     position: relative;
-    border-bottom: 5px solid var(--primario);
 }
-
 .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.75);
-    padding: 80px 0 0 0;
+    background: rgba(0, 0, 0, 0.85); /* Fondo oscuro garantizado */
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
-
 .hero-container {
     max-width: 1200px;
-    width: 100%;
+    margin: 0 auto;
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 30px;
+    width: 100%;
 }
 
-.hero-text { flex: 1.2; text-align: left; padding-bottom: 80px; }
-
-.hero-text h1 {
-    font-size: 4rem;
-    color: var(--primario);
-    margin: 0;
-    line-height: 1.1;
-    text-transform: uppercase;
+/* --- DISEÑO ESCRITORIO --- */
+@media (min-width: 769px) {
+    .hero { background-attachment: fixed; }
+    .hero-overlay { height: 85vh; display: flex; align-items: flex-end; }
+    .hero-container { justify-content: space-between; padding: 0 40px; align-items: flex-end; }
+    .hero-text { text-align: left; padding-bottom: 80px; flex: 1.2; }
+    .hero-text h1 { font-size: 4rem; line-height: 1.1; color: var(--primario); text-transform: uppercase; }
+    .hero-image { flex: 1; display: flex; justify-content: flex-end; }
+    .profile-img { height: 600px; width: auto; position: relative; bottom: -5px; }
 }
 
-.subtitle { font-size: 1.3rem; margin-top: 15px; }
-
-.hero-image { flex: 1; display: flex; justify-content: flex-end; }
-
-.profile-img { height: 600px; width: auto; object-fit: cover; display: block; }
-
-/* --- SECCIONES COMUNES --- */
-.container { max-width: 1100px; margin: 120px auto; padding: 0 20px; text-align: center; }
-
-h2 {
-    font-size: 2.8rem;
-    color: var(--primario);
-    border-bottom: 3px solid var(--primario);
-    display: inline-block;
-    padding-bottom: 10px;
-    margin-bottom: 60px;
-    text-transform: uppercase;
-}
-
-.timeline-item, .card {
-    background-color: #222;
-    padding: 30px;
-    border-left: 6px solid var(--primario);
-    text-align: left;
-    border-radius: 0 15px 15px 0;
-    margin-bottom: 40px !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px !important; }
-
-.btn { display: inline-block; background-color: var(--primario); color: var(--negro); padding: 15px 35px; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 25px; transition: transform 0.3s; }
-
-.buzon-quejas { border: 3px solid var(--primario) !important; padding: 80px 50px; background: #1a1a1a; border-radius: 25px; box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); }
-
-.btn-special { background-color: var(--primario) !important; color: var(--negro) !important; padding: 20px 50px !important; font-weight: bold; border-radius: 10px; }
-
-footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
-
-/* =======================================================
-   OPTIMIZACIÓN MÓVIL (TEXTO GIGANTE, FOTO CENTRADA)
-   ======================================================= */
+/* --- DISEÑO MÓVIL (MÁXIMO IMPACTO) --- */
 @media (max-width: 768px) {
     .navbar { padding: 1.5rem 0; }
     .nav-container { flex-direction: column; gap: 10px; }
-
-    .hero-overlay { padding: 40px 0 0 0; background-color: rgba(0, 0, 0, 0.85); }
-
+    
     .hero-container {
-        flex-direction: column;
-        align-items: center;
-        max-width: 480px;
-        margin: 0 auto;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 60px 20px 0;
     }
-
-    .hero-text { text-align: center; padding: 0 15px; order: 1; width: 100%; }
-
-    .hero-text h1 {
-        font-size: 4rem; /* MASIVO */
-        line-height: 1.0;
-        margin-bottom: 10px;
+    .hero-text { width: 100%; margin-bottom: 30px; }
+    .hero-text h1 { 
+        font-size: 4.2rem !important; /* Texto masivo */
+        line-height: 0.9; 
+        color: var(--primario); 
+        text-transform: uppercase;
     }
-
-    .subtitle { font-size: 1.4rem; font-weight: bold; }
-
-    .hero-image { order: 2; justify-content: center; width: 100%; margin-top: 20px; }
-
-    .profile-img {
-        height: 65vh; /* GIGANTE */
+    .hero-image { width: 100%; display: flex; justify-content: center; }
+    .profile-img { 
+        width: 85%; 
+        max-width: 300px;
+        height: auto;
         mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     }
-
-    .container { max-width: 480px; margin: 60px auto; }
 }
+
+/* --- SECCIONES --- */
+.container { max-width: 1000px; margin: 100px auto; padding: 0 20px; text-align: center; }
+h2 { font-size: 2.8rem; color: var(--primario); text-transform: uppercase; margin-bottom: 60px; border-bottom: 3px solid var(--primario); display: inline-block; padding-bottom: 10px; }
+
+.timeline-item, .card {
+    background: var(--gris-oscuro);
+    padding: 30px;
+    border-left: 6px solid var(--primario);
+    text-align: left;
+    margin-bottom: 40px !important;
+    border-radius: 0 15px 15px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px !important; }
+
+/* --- BOTONES --- */
+.btn, .btn-special {
+    display: inline-block;
+    background: var(--primario);
+    color: var(--negro);
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 25px;
+    transition: 0.3s;
+}
+.btn-special { padding: 20px 50px; }
+
+.buzon-quejas {
+    border: 3px solid var(--primario);
+    padding: 80px 50px;
+    border-radius: 25px;
+}
+
+footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; font-weight: bold; }
