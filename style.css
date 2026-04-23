@@ -4,7 +4,7 @@
     --blanco: #ffffff;
 }
 
-/* --- RESET Y BASE --- */
+/* --- BASE Y RESET --- */
 html, body {
     background-color: var(--negro) !important;
     margin: 0;
@@ -39,10 +39,10 @@ html, body {
 .nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
 .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-/* --- HERO: FONDO OSCURECIDO TOTAL --- */
+/* --- HERO: EQUILIBRIO DE OSCURIDAD (0.7) --- */
 .hero {
-    /* Gradiente negro intenso sobre la imagen para apagar el brillo del fondo */
-    background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('esei1.png');
+    /* Fondo con visibilidad equilibrada del edificio */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('esei1.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -51,11 +51,11 @@ html, body {
 }
 
 .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: transparent;
     width: 100%;
 }
 
-/* --- HERO ESCRITORIO (PC) --- */
+/* --- HERO ESCRITORIO (PC - DISEÑO BLOQUEADO) --- */
 @media (min-width: 769px) {
     .hero-overlay { padding: 0; display: flex; justify-content: center; height: 85vh; }
     
@@ -82,7 +82,7 @@ html, body {
         text-transform: uppercase; 
         margin: 0; 
         line-height: 1.1; 
-        text-shadow: 0 0 20px rgba(212, 175, 55, 0.4); 
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); 
     }
 
     .hero-image { 
@@ -98,7 +98,7 @@ html, body {
         width: auto; 
         display: block;
         position: relative;
-        bottom: -2px; /* Solapa con la sección siguiente para eliminar el hueco */
+        bottom: -2px; 
         z-index: 5;
     }
 }
@@ -177,17 +177,15 @@ h2 {
 footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
 
 /* =======================================================
-   VERSION MÓVIL (NAVBAR GIGANTE + HERO IMPACTO MÁXIMO)
+   VERSION MÓVIL (NAVBAR GIGANTE + IMPACTO VISUAL)
    ======================================================= */
 @media (max-width: 768px) {
-    /* Barra superior agrandada */
     .navbar { padding: 3.5rem 0; }
     .nav-container { flex-direction: column; gap: 20px; }
     .logo { font-size: 1.4rem; }
     .nav-links { gap: 15px; }
     .nav-links a { font-size: 1rem; }
 
-    /* Hero modo nocturno y vertical */
     .hero { background-attachment: scroll; }
     
     .hero-text {
@@ -205,7 +203,7 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         line-height: 0.9; 
         color: var(--primario); 
         text-transform: uppercase;
-        text-shadow: 0 0 30px rgba(0,0,0,1); 
+        text-shadow: 2px 2px 15px rgba(0,0,0,0.8); 
     }
 
     .subtitle { font-size: 1.4rem; margin: 25px 0; font-weight: bold; }
@@ -226,7 +224,6 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     }
 
-    /* Aseguramos que se vean todas las experiencias/propuestas */
     .timeline, .grid { display: flex !important; flex-direction: column !important; }
     .container { margin: 40px auto; max-width: 100%; }
 }
