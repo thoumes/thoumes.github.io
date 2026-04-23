@@ -39,10 +39,10 @@ html, body {
 .nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
 .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-/* --- HERO: EQUILIBRIO DE OSCURIDAD (0.7) --- */
+/* --- HERO: MÁS LUZ (0.4) --- */
 .hero {
-    /* Fondo con visibilidad equilibrada del edificio */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('esei1.png');
+    /* Fondo con mucha más claridad para que se vea el cielo y el edificio */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('esei1.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -55,7 +55,7 @@ html, body {
     width: 100%;
 }
 
-/* --- HERO ESCRITORIO (PC - DISEÑO BLOQUEADO) --- */
+/* --- HERO ESCRITORIO (PC) --- */
 @media (min-width: 769px) {
     .hero-overlay { padding: 0; display: flex; justify-content: center; height: 85vh; }
     
@@ -82,7 +82,13 @@ html, body {
         text-transform: uppercase; 
         margin: 0; 
         line-height: 1.1; 
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); 
+        /* Sombra de texto reforzada para compensar la luz del fondo */
+        text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.8); 
+    }
+
+    .subtitle {
+        font-weight: bold;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
     }
 
     .hero-image { 
@@ -153,6 +159,7 @@ h2 {
     border-radius: 8px;
     margin-top: 25px;
     transition: 0.3s;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
 .btn:hover { transform: scale(1.05); }
@@ -177,7 +184,7 @@ h2 {
 footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
 
 /* =======================================================
-   VERSION MÓVIL (NAVBAR GIGANTE + IMPACTO VISUAL)
+   VERSION MÓVIL
    ======================================================= */
 @media (max-width: 768px) {
     .navbar { padding: 3.5rem 0; }
@@ -203,10 +210,15 @@ footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: 
         line-height: 0.9; 
         color: var(--primario); 
         text-transform: uppercase;
-        text-shadow: 2px 2px 15px rgba(0,0,0,0.8); 
+        text-shadow: 3px 3px 20px rgba(0,0,0,1); 
     }
 
-    .subtitle { font-size: 1.4rem; margin: 25px 0; font-weight: bold; }
+    .subtitle { 
+        font-size: 1.4rem; 
+        margin: 25px 0; 
+        font-weight: bold; 
+        text-shadow: 2px 2px 10px rgba(0,0,0,1);
+    }
 
     .hero-image {
         width: 100%;
