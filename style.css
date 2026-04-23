@@ -167,78 +167,71 @@ h2 {
 
 /* --- BUZÓN Y BOTONES --- */
 /* --- BUZÓN DE SUGERENCIAS PREMIUM --- */
+/* --- BUZÓN DE SUGERENCIAS (Versión con recuadro visible) --- */
 .buzon-quejas {
-    border: 3px solid var(--primario);
-    padding: 60px 40px;
-    background: linear-gradient(145deg, #1a1a1a, #252525); /* Efecto de profundidad */
-    border-radius: 30px;
-    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.15); /* Resplandor dorado suave */
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
+    /* Forzamos el borde para que sea muy visible */
+    border: 3px solid var(--primario) !important; 
+    padding: 80px 50px;
+    background: #1a1a1a; /* Fondo sólido para que contraste */
+    border-radius: 25px;
+    
+    /* Añadimos un resplandor para que el recuadro "brille" */
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); 
+    
+    max-width: 900px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.buzon-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .buzon-icon {
-    font-size: 3.5rem;
-    display: block;
+    font-size: 4rem;
     margin-bottom: 20px;
 }
 
+/* Título dentro del buzón sin la línea de abajo general */
 .buzon-quejas h2 {
-    border-bottom: none; /* Quitamos la línea para este título específico */
-    margin-bottom: 15px;
-    color: var(--primario);
+    border-bottom: none !important;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    font-size: 2.5rem;
 }
 
 .buzon-quejas p {
     font-size: 1.2rem;
-    color: #ccc;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
+    color: #eeeeee;
+    max-width: 700px;
+    margin-bottom: 40px;
 }
 
-/* Botón especial para el buzón */
+/* Botón que resalta dentro del recuadro */
 .btn-special {
-    background-color: transparent !important;
-    color: var(--primario) !important;
-    border: 2px solid var(--primario) !important;
-    padding: 18px 40px !important;
-    font-size: 1.1rem !important;
-    letter-spacing: 1px;
-    transition: all 0.4s ease !important;
+    background-color: var(--primario) !important;
+    color: var(--negro) !important;
+    padding: 20px 50px !important;
+    font-size: 1.2rem !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 .btn-special:hover {
-    background-color: var(--primario) !important;
-    color: var(--negro) !important;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-    transform: translateY(-3px);
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
 }
 
-/* Ajuste móvil para el buzón */
-@media (max-width: 768px) {
+/* Ajuste para que en PC respire bien */
+@media (min-width: 769px) {
     .buzon-quejas {
-        padding: 40px 20px;
-        margin: 0 15px;
-        border-radius: 20px;
+        margin-top: 150px;
+        margin-bottom: 150px;
     }
-    
-    .buzon-quejas p {
-        font-size: 1rem;
-    }
-}
-
-.btn {
-    display: inline-block;
-    background-color: var(--primario);
-    color: var(--negro);
-    padding: 15px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid var(--primario);
-    margin-top: 20px;
 }
 
 footer {
