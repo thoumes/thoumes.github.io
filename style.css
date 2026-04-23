@@ -40,7 +40,7 @@ body {
 
 .nav-links {
     display: flex;  
-    flex-direction: row/* Pone los elementos en fila */
+    flex-direction: row; /* CORREGIDO: Añadido punto y coma */
     list-style: none;     /* Quita los puntos de la lista */
     margin: 0;
     padding: 0;
@@ -59,12 +59,18 @@ body {
     color: var(--primario);
 }
 
-/* HERO */
+/* HERO - Con imagen de fondo esei.png */
 .hero {
-    background-color: var(--negro);
+    /* Fondo con imagen y capa de superposición oscura para legibilidad del texto */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('esei.png');
+    background-size: cover; /* La imagen cubre todo el espacio */
+    background-position: center; /* Centrada */
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     border-bottom: 5px solid var(--primario);
+    /* Aseguramos que el contenido no se pegue a los bordes con la imagen de fondo */
+    padding: 100px 0; 
 }
 
 .hero-container {
