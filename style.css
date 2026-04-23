@@ -47,33 +47,33 @@ body {
 }
 
 /* --- HERO ESCRITORIO (Corrección de alineación) --- */
+/* --- HERO ESCRITORIO (Ajuste de precisión para eliminar el hueco) --- */
 @media (min-width: 769px) {
     .hero-overlay { 
         background-color: rgba(0, 0, 0, 0.7);
         padding: 0; 
         display: flex; 
         justify-content: center; 
-        height: 80vh; 
-        min-height: 500px;
+        height: 85vh; /* Aumentamos un poco el alto */
         width: 100%;
+        align-items: flex-end; /* Fuerza todo al fondo */
     }
 
     .hero-container {
         max-width: 1200px;
         margin: 0 auto;
         display: flex;
-        align-items: stretch; 
+        align-items: flex-end; /* Asegura que texto e imagen miren al suelo */
         justify-content: space-between;
         padding: 0 40px;
         width: 100%;
+        height: 100%;
     }
 
     .hero-text { 
         flex: 1.2; 
         text-align: left; 
-        display: flex; 
-        flex-direction: column; 
-        justify-content: center; 
+        padding-bottom: 100px; /* Sube el texto para que no estorbe abajo */
     }
 
     .hero-text h1 { 
@@ -82,24 +82,24 @@ body {
         text-transform: uppercase; 
         margin: 0; 
         line-height: 1.1; 
-        text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
     }
 
     .hero-image { 
         flex: 1; 
         display: flex; 
         justify-content: flex-end; 
-        align-items: flex-end; /* Pega la imagen al suelo */
+        align-items: flex-end;
         height: 100%;
+        position: relative; /* Para el ajuste fino */
     }
 
     .profile-img { 
-        height: 100%; 
-        max-height: 550px; 
+        height: 90%; /* Ajusta el tamaño de la foto */
         width: auto; 
-        object-fit: contain; 
         display: block;
-        margin-bottom: -5px; /* Elimina huecos residuales */
+        position: relative;
+        bottom: -5px; /* FUERZA A LA IMAGEN A BAJAR 5 PÍXELES SOBRE EL BORDE */
+        z-index: 5;
     }
 }
 
