@@ -19,7 +19,7 @@ body {
 /* --- NAVBAR --- */
 .navbar {
     background: var(--negro);
-    padding: 2.5rem 0; /* Barra gruesa */
+    padding: 2.5rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -43,7 +43,7 @@ body {
     position: relative;
 }
 .hero-overlay {
-    background: rgba(0, 0, 0, 0.85); /* Fondo oscuro garantizado */
+    background: rgba(0, 0, 0, 0.85);
     width: 100%;
 }
 .hero-container {
@@ -64,31 +64,51 @@ body {
     .profile-img { height: 600px; width: auto; position: relative; bottom: -5px; }
 }
 
-/* --- DISEÑO MÓVIL (MÁXIMO IMPACTO) --- */
+/* --- DISEÑO MÓVIL (MODIFICADO) --- */
 @media (max-width: 768px) {
     .navbar { padding: 1.5rem 0; }
-    .nav-container { flex-direction: column; gap: 10px; }
+    .nav-container { flex-direction: column; gap: 15px; }
     
     .hero-container {
-        flex-direction: column !important;
+        flex-direction: column !important; /* Texto arriba, imagen abajo */
         align-items: center !important;
         text-align: center !important;
-        padding: 60px 20px 0;
+        padding: 40px 15px 0; /* Ajuste de espacio superior */
     }
-    .hero-text { width: 100%; margin-bottom: 30px; }
+    
+    .hero-text { 
+        width: 100%; 
+        margin-bottom: 20px; 
+        order: 1; /* Asegura que el texto vaya primero */
+    }
+    
     .hero-text h1 { 
-        font-size: 4.2rem !important; /* Texto masivo */
+        font-size: 3.8rem !important; /* Texto masivo y centrado */
         line-height: 0.9; 
         color: var(--primario); 
         text-transform: uppercase;
+        margin-bottom: 10px;
     }
-    .hero-image { width: 100%; display: flex; justify-content: center; }
+
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-image { 
+        width: 100%; 
+        display: flex; 
+        justify-content: center; 
+        order: 2; /* Imagen debajo del texto */
+    }
+
     .profile-img { 
-        width: 85%; 
-        max-width: 300px;
+        width: 100%; 
+        max-width: 400px; /* Imagen más grande que antes */
         height: auto;
         mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        display: block;
     }
 }
 
