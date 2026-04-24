@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alejandro Álvarez | Candidatura Electoral 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -35,6 +35,28 @@
         </div>
     </div>
 </header>
+
+<section class="pixel-timer-section">
+    <p class="timer-label">TIEMPO PARA EL 6 DE MAYO:</p>
+    <div id="countdown" class="pixel-countdown">
+        <div class="pixel-box">
+            <span id="days">00</span>
+            <p>DÍAS</p>
+        </div>
+        <div class="pixel-box">
+            <span id="hours">00</span>
+            <p>HRS</p>
+        </div>
+        <div class="pixel-box">
+            <span id="minutes">00</span>
+            <p>MIN</p>
+        </div>
+        <div class="pixel-box">
+            <span id="seconds">00</span>
+            <p>SEG</p>
+        </div>
+    </div>
+</section>
 
 <section id="sobre-mi" class="container">
     <h2>Sobre mí</h2>
@@ -108,7 +130,7 @@
         <div class="buzon-content">
             <h2>Buzón de Sugerencias</h2>
             <p>Tu opinión es el motor del cambio. Deja aquí tus ideas o quejas.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZBfhre3iAbm07l35ETzfce6vDJYLZwzzBAN7YkmbaB_VgXg/viewform?usp=dialog" target="_blank" class="btn btn-special">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdZBfhre3iAbm07l35ETzfce6vDJYLZwzzBAN7YkmbaB_VgXg/viewform?usp=dialog" target="_blank" class="btn">
                 ENVIAR SUGERENCIA
             </a>
         </div>
@@ -119,6 +141,31 @@
     <p>© 2026 - Alejandro Álvarez Figueroa</p>
     <p>Relevantes, Unidos, Internacionales. Tu voto cuenta.</p>
 </footer>
+
+<script>
+    // Fecha objetivo: 6 de mayo de 2026 a las 09:00
+    const countDownDate = new Date("May 6, 2026 09:00:00").getTime();
+
+    const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "<p class='timer-label'>¡DÍA DE ELECCIONES!</p>";
+        }
+    }, 1000);
+</script>
 
 </body>
 </html>
