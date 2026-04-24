@@ -16,7 +16,7 @@ html, body {
     overflow-x: hidden;
 }
 
-/* --- NAVBAR FIJA --- */
+/* --- NAVBAR SIEMPRE VISIBLE (FIXED) --- */
 .navbar {
     background-color: var(--negro);
     padding: 1.5rem 0;
@@ -40,7 +40,7 @@ html, body {
 .nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
 .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-/* --- HERO: FONDO UN POCO MÁS OSCURO (0.45) --- */
+/* --- HERO: FONDO OSCURECIDO (0.45) --- */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('esei1.png');
     background-size: cover;
@@ -48,17 +48,12 @@ html, body {
     background-attachment: fixed;
     position: relative;
     border-bottom: none;
-    margin-top: 70px;
-}
-
-.hero-overlay {
-    background-color: transparent;
-    width: 100%;
+    margin-top: 70px; /* Espacio para la navbar fija */
 }
 
 /* --- HERO ESCRITORIO (PC) --- */
 @media (min-width: 769px) {
-    .hero-overlay { padding: 0; display: flex; justify-content: center; height: 85vh; }
+    .hero-overlay { display: flex; justify-content: center; height: 85vh; }
     .hero-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -75,10 +70,56 @@ html, body {
     .profile-img { height: 95%; width: auto; display: block; position: relative; bottom: -2px; z-index: 5; }
 }
 
+/* --- SECCIÓN CONTADOR PIXEL ART --- */
+.pixel-timer-section {
+    background-color: var(--negro);
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 4px solid var(--primario);
+    border-bottom: 4px solid var(--primario);
+}
+
+.timer-label {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--primario);
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.pixel-countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.pixel-box {
+    background: #222;
+    border: 4px solid var(--blanco);
+    padding: 20px;
+    min-width: 100px;
+    box-shadow: 8px 8px 0px var(--primario); /* Sombra estilo bloque */
+}
+
+.pixel-box span {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    color: var(--primario);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.pixel-box p {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    margin: 0;
+    color: var(--blanco);
+}
+
 /* --- SECCIONES COMUNES --- */
 .container {
     max-width: 1100px;
-    margin: 120px auto;
+    margin: 100px auto;
     padding: 0 20px;
     text-align: center;
 }
@@ -118,7 +159,7 @@ h2 {
     transition: 0.3s;
 }
 
-/* --- BUZÓN DE SUGERENCIAS (Ajuste para que no se salga el texto) --- */
+/* --- BUZÓN DE SUGERENCIAS --- */
 .buzon-quejas {
     border: 3px solid var(--primario) !important; 
     padding: 60px 30px;
@@ -127,54 +168,54 @@ h2 {
     box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); 
     max-width: 900px;
     margin: 100px auto;
-    overflow: hidden; /* Evita fugas de texto */
+    overflow: hidden;
 }
 
 footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
 
 /* =======================================================
-   VERSION MÓVIL (AJUSTES SOLICITADOS)
+   VERSION MÓVIL (AJUSTES FINALES)
    ======================================================= */
 @media (max-width: 768px) {
     .navbar { padding: 3rem 0; }
     .nav-container { flex-direction: column; gap: 15px; }
-    .logo { font-size: 1.2rem; text-align: center; }
 
     .hero { margin-top: 180px; background-attachment: scroll; }
     
-    /* BAJAMOS EL TEXTO Y REDUCIMOS ESPACIO CON LA IMAGEN */
+    /* Bajamos letras y las acercamos a la imagen */
     .hero-text {
-        height: 60vh; /* Reducimos altura del bloque de texto */
+        height: 60vh;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end; /* Empuja el texto hacia abajo */
-        align-items: center;
-        padding-bottom: 20px; /* Lo acerca a la imagen que viene debajo */
+        justify-content: flex-end;
+        padding-bottom: 30px;
     }
-
-    .hero-text h1 { font-size: 3.5rem; line-height: 1; }
-    .subtitle { font-size: 1.2rem; margin: 15px 0; }
+    .hero-text h1 { font-size: 3.2rem; line-height: 1; }
+    .subtitle { font-size: 1.1rem; }
 
     .hero-image {
-        height: 80vh; /* Imagen sólida y grande */
+        height: 75vh;
         display: flex;
         align-items: flex-end;
         justify-content: center;
     }
-
     .profile-img {
-        height: 80vh;
+        height: 75vh;
         width: auto;
-        mask-image: none; /* ELIMINADO EL DIFUMINADO: Ahora es sólida */
+        mask-image: none; /* IMAGEN SÓLIDA */
         -webkit-mask-image: none;
         margin-bottom: -5px;
     }
 
-    /* AJUSTE DE TITULOS QUE SE CORTAN */
-    h2 { font-size: 1.8rem; width: 100%; box-sizing: border-box; } /* "Experiencia y representación" ya no se corta */
-    
-    .buzon-quejas h2 { font-size: 1.6rem; border: none; } /* Ajuste específico buzón */
-    .buzon-quejas p { font-size: 1rem; }
+    /* Contador en móvil */
+    .pixel-countdown { gap: 10px; }
+    .pixel-box { min-width: 65px; padding: 12px; box-shadow: 4px 4px 0px var(--primario); }
+    .pixel-box span { font-size: 0.9rem; }
+    .pixel-box p { font-size: 0.4rem; }
 
+    /* Evitar que se corten los títulos */
+    h2 { font-size: 1.6rem; width: 100%; }
+    .buzon-quejas h2 { font-size: 1.5rem; border: none; }
+    
     .container { margin: 40px auto; padding: 0 15px; }
 }
