@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alejandro Álvarez | Candidatura Electoral 2026</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="nav-container">
-        <a href="#" class="logo">Candidatura Electoral 2026</a>
+        <a href="#" class="logo">Candidatura 2026</a>
         <ul class="nav-links">
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#experiencia">Experiencia</a></li>
-            <li><a href="#propuestas">Propuestas</a></li>
-            <li><a href="#contacto">Sugerencias</a></li>
+            <li><a href="#sobre-mi">Perfil</a></li>
+            <li><a href="#experiencia">CV</a></li>
+            <li><a href="#propuestas">Plan</a></li>
+            <li><a href="#contacto">Buzón</a></li>
         </ul>
     </div>
 </nav>
@@ -37,7 +37,7 @@
 </header>
 
 <section class="pixel-timer-section">
-    <p class="timer-label">TIEMPO PARA EL 6 DE MAYO:</p>
+    <p class="timer-label">TIEMPO RESTANTE PARA EL 6 DE MAYO:</p>
     <div id="countdown" class="pixel-countdown">
         <div class="pixel-box">
             <span id="days">00</span>
@@ -143,14 +143,27 @@
 </footer>
 
 <script>
+    // Configura la fecha: 6 de mayo de 2026
     const countDownDate = new Date("May 6, 2026 09:00:00").getTime();
+
     const x = setInterval(function() {
         const now = new Date().getTime();
         const distance = countDownDate - now;
-        document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
-        document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "<p class='timer-label'>¡ES EL DÍA DE VOTAR!</p>";
+        }
     }, 1000);
 </script>
 
