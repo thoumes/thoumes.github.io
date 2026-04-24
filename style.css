@@ -18,7 +18,7 @@ html, body {
 /* --- NAVBAR SIEMPRE VISIBLE --- */
 .navbar {
     background-color: var(--negro);
-    padding: 1rem 0; /* Tamaño normalizado */
+    padding: 1rem 0;
     position: fixed;
     top: 0; width: 100%;
     z-index: 2000;
@@ -46,11 +46,11 @@ html, body {
     background-attachment: fixed;
     position: relative;
     border-bottom: none;
-    margin-top: 60px; /* Ajuste para navbar normal */
+    margin-top: 60px;
 }
 
 @media (min-width: 769px) {
-    .hero-overlay { display: flex; justify-content: center; height: 85vh; }
+    .hero-overlay { display: flex; justify: center; height: 85vh; }
     .hero-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -112,53 +112,58 @@ h2 { font-size: 2.8rem; color: var(--primario); border-bottom: 3px solid var(--p
 footer { padding: 60px 20px; border-top: 4px solid var(--primario); text-align: center; }
 
 /* =======================================================
-   VERSION MÓVIL (NAVBAR NORMAL + TEXTO CENTRADO)
+   VERSION MÓVIL (AJUSTES DORADO, MAYÚSCULAS Y POSICIÓN)
    ======================================================= */
 @media (max-width: 768px) {
-    .navbar { padding: 1rem 0; } /* Navbar ahora es pequeña en móvil también */
+    .navbar { padding: 1rem 0; }
     .nav-container { flex-direction: row; justify-content: space-between; }
-    .logo { font-size: 0.8rem; max-width: 50%; }
+    .logo { font-size: 0.8rem; }
     .nav-links { gap: 10px; }
     .nav-links a { font-size: 0.65rem; }
 
     .hero { margin-top: 60px; background-attachment: scroll; }
     
     .hero-text {
-        height: 60vh;
+        height: 65vh; /* Aumentamos un poco el área para jugar con el empuje */
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Centrado vertical */
-        align-items: center;    /* Centrado horizontal */
-        text-align: center;     /* Alineación de texto al centro */
+        justify-content: flex-end; /* Empujamos todo el bloque hacia abajo */
+        align-items: center;    
+        text-align: center;     
+        padding-bottom: 20px; /* Distancia corta con la imagen */
     }
 
     .hero-text h1 { 
-        font-size: 2.8rem; /* Tamaño equilibrado para móvil */
+        font-size: 2.8rem; 
         line-height: 1.1; 
+        color: var(--primario); /* NOMBRE DORADO */
+        text-transform: uppercase; /* SIEMPRE MAYÚSCULAS */
         text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
     }
     
     .subtitle { 
         font-size: 1.1rem; 
-        margin: 20px 0; 
+        margin: 15px 0; 
         font-weight: bold;
+        color: var(--blanco);
     }
 
     .hero-image {
-        height: 70vh; 
+        height: 65vh; 
         display: flex;
         align-items: flex-end;
         justify-content: center;
     }
 
     .profile-img {
-        height: 70vh;
+        height: 65vh;
         width: auto;
         margin-bottom: -5px;
     }
 
-    /* Contador Pixel en móvil mantenido horizontal */
     .pixel-countdown { gap: 8px; }
     .pixel-box { min-width: 60px; padding: 10px; box-shadow: 4px 4px 0px var(--primario); border-width: 2px; }
     .pixel-box span { font-size: 0.8rem; }
+
+    h2 { font-size: 1.6rem; width: 100%; }
 }
